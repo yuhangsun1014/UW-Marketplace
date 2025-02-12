@@ -1,0 +1,14 @@
+title{
+    font: bold;
+}
+h1{
+    color: blueviolet;
+    font-family: Arial;
+    font: bold;
+}
+h2{
+    font: italic;
+    color: blueviolet;
+    font-family: cursive;
+    text-align: center;
+}
