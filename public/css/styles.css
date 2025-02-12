@@ -12,3 +12,14 @@ h2{
     font-family: cursive;
     text-align: center;
 }
+.search-container{
+    position: relative;
+    width: 300px;
+}
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
