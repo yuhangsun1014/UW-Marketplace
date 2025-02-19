@@ -1,23 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+function App (){
+  return(
+    <div>
+        <h1 id="title">UW Marketplace</h1>
+        <h2 id="opening_tag">A Safe and Easy way to buy and sell at the University of Washington !</h2>
+
+        <div className="search-container">
+            <input type="text" id="search-input" placeholder="Search..."/>
+            <button id="search-button">Search</button>
+        </div>
     </div>
   );
 }

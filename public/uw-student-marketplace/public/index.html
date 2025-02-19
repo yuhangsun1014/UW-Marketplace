@@ -10,39 +10,7 @@
 </head>
 
 <body>
-    <h1 id="title">UW Marketplace</h1>
-    <h2 id="opening_tag">A Safe and Easy way to buy and sell at the University of Washington !</h2>
-    <div class="search-container">
-        <input type="text" id="search-input" placeholder="Search...">
-        <!-- <button id="search-button">Search</button> -->
-    </div>
-
- 
-
-    <script type="module">
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-app.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-analytics.js";
-        // TODO: Add SDKs for Firebase products that you want to use
-        // https://firebase.google.com/docs/web/setup#available-libraries
-
-        // Your web app's Firebase configuration
-        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-        const firebaseConfig = {
-            apiKey: "AIzaSyDjw6_zoknXsJM6hIs_a9mXM3NKNlCIUN4",
-            authDomain: "uw-student-marketplace.firebaseapp.com",
-            projectId: "uw-student-marketplace",
-            storageBucket: "uw-student-marketplace.appspot.com",
-            messagingSenderId: "745521624458",
-            appId: "1:745521624458:web:213880f2387ed2468d0473",
-            measurementId: "G-Z6ZVLGPTM9"
-        };
-
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
-    </script>
-    <script src="script.js" defer></script>  <!-- defer makes sure the script loads after the page content is parsed -->
+    <div id = "root"></div>
 </body>
 
 </html>
