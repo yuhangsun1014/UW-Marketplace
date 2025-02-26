@@ -1,3 +1,21 @@
+/**
+ * File: Firebase-config.js
+ * 
+ * Description: This file handles the initialization of Firebase services
+ * 
+ * Proporties: firebaseConfig contains {apiKey, authDomain, projectID, storageBucket, messagingSenderId, appId, measurementId}
+ * 
+ * Exports:
+ *  auth: Provides Firebase Authentication methods.
+ *  db: Gives access to Firestore Database operations.
+ *  storage: Enables Firebase Storage capabilities.
+ *  app: Represents the initialized Firebase App instance.
+ * 
+ * @author: William Sun
+ * @version: 1.0
+ * @since: 2-18-2025
+ */
+
 // Import Firebase SDK
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
