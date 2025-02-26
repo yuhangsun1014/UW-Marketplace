@@ -7,87 +7,278 @@
     <link rel="stylesheet" href="/css/styles.css">
     <title>UW Marketplace</title>
     <style>
-      .header{
+       /* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
 
-      }
-      .header_container{
-        display: flex;
-        padding: 10px 20px;
-        background-color:white;
-        width: 100%;
-        height: 209px;
-        border: 2px solid black;
 
-      }
-        .header_logo{
-            display:flex;
-            justify-content: left;
-            align-items: center;
-            width: 50%;
-            height: 100%;
-        }
-        
-        .search_bar {
-            width: 100%;
-            max-width: 700px;
-            background: rgba(218, 73, 73, 0.2);
-            display: flex;
-            align-items: center;
-            border-radius: 60px;
-            padding:10px 20px;
-        }
-        
-        .search_bar input{
-            background: transparent;
-            flex: 1;
-            border: 0;
-            outline: none;
-            padding: 24px 20px;
-            font-size: 20px;
-            color:#cac7ff
 
-        }
-        .search_bar button img{
-            width: 25px;
-        }
-        .search_bar button{
-            background: transparent;
-            border: 0;
-            border-radius: 50px;
-            outline: none;
-            cursor: pointer;
-            width: 60px;
-            height:60px
-        }
+/* Header styles */
+.header {
+  width: 100%;
+}
 
+/* Top navigation bar */
+.top-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Logo */
+.logo img {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Search bar */
+.search-container {
+  position: relative;
+  max-width: 400px;
+  width: 100%;
+  margin: 0 16px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 8px 16px;
+  padding-right: 40px;
+  background-color: #f3f4f6;
+  border: none;
+  border-radius: 9999px;
+  font-size: 14px;
+  outline: none;
+}
+
+.search-button {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.search-icon {
+  color: #6b7280;
+}
+
+/* Action buttons */
+.action-buttons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sell-button {
+  background-color: #9333ea;
+  color: white;
+  border: none;
+  border-radius: 9999px;
+  padding: 6px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.sell-button:hover {
+  background-color: #7e22ce;
+}
+
+.auth-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.login-button {
+  background-color: #9333ea;
+  color: white;
+  border: none;
+  border-top-left-radius: 9999px;
+  border-bottom-left-radius: 9999px;
+  padding: 6px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.login-button:hover {
+  background-color: #7e22ce;
+}
+
+.signup-button {
+  background-color: white;
+  color: black;
+  border: 1px solid #d1d5db;
+  border-top-right-radius: 9999px;
+  border-bottom-right-radius: 9999px;
+  padding: 6px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.signup-button:hover {
+  background-color: #f3f4f6;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.user-icon {
+  background-color: black;
+  padding: 4px;
+  border-radius: 2px;
+}
+
+.user-svg {
+  color: white;
+}
+
+.username {
+  font-size: 14px;
+}
+
+/* Navigation menu */
+.main-nav {
+  background-color: #9333ea;
+  color: white;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 12px 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  list-style-type: none;
+}
+
+.nav-item {
+  padding: 4px 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.nav-item:hover {
+  background-color: #7e22ce;
+}
+
+/* Content area */
+.content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 16px;
+}
+
+.content h1 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .top-nav {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .search-container {
+    margin: 12px 0;
+    max-width: 100%;
+  }
+  
+  .action-buttons {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .nav-menu {
+    flex-wrap: wrap;
+  }
+}
     </style>
-
 </head>
 
 <body>
     <header class="header">
-        <div class="header_container">
-            
-            <!--logo image -->
-            <div class ="header_logo">
-                <img src="../src/Assets/website_logo.jpg" alt="UW Marketplace Logo" width="200" height="200">
+        <!-- Top navigation bar -->
+        <div class="top-nav">
+          <!-- Logo -->
+          <div class="logo">
+            <img 
+              src="../src/Assets/website_logo.jpg" 
+              alt="market place logo" 
+            />
+          </div>
+  
+          <!-- Search bar -->
+          <div class="search-container">
+            <input
+              type="text"
+              placeholder="Search items"
+              class="search-input"
+            />
+            <button class="search-button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="search-icon">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+            </button>
+          </div>
+  
+          <!-- Action buttons -->
+          <div class="action-buttons">
+            <button class="sell-button">
+              Sell Items
+            </button>
+            <div class="auth-buttons">
+              <button class="login-button">
+                Log In
+              </button>
+              <button class="signup-button">
+                Sign up
+              </button>
             </div>
-
-            <!--search bar-->
-            <div class="header_search">
-                <form action="" class="search_bar">
-                    <input type="text" class="header_searchInput">
-                    <button type="submit" ><img src="../src/Assets/search.png"</button>
-                </form>
-
+            <div class="user-profile">
+              <div class="user-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="user-svg">
+                  <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+              </div>
+              <span class="username">John Doe</span>
             </div>
-            
+          </div>
         </div>
-
-
-            
-    </header>
-    <div id = "root"></div>
-</body>
-
+  
+        <!-- Navigation menu -->
+        <nav class="main-nav">
+          <ul class="nav-menu">
+            <li class="nav-item">Books</li>
+            <li class="nav-item">Furniture</li>
+            <li class="nav-item">Electronics</li>
+            <li class="nav-item">Stationery</li>
+            <li class="nav-item">Bags</li>
+            <li class="nav-item">Lab Equipments</li>
+          </ul>
+        </nav>
+      </header>
+  
+  </body>
 </html>
