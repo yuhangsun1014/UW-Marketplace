@@ -1,0 +1,12 @@
+{
+    "name": "uw-offer-up",
+    "version": "1.0.0",
+    "description": "UW Marketplace Project",
+    "main": "index.js",
+    "scripts": {
+        "start": "react-scripts start"
+    },
+    "dependencies": {
+        "firebase": "^11.3.1"
+    }
+}
