@@ -43,7 +43,7 @@ export const registerUsers = async(email, password, username)=>{
 
         await setDoc(doc(db,"users",user.uid),{
             userid:user.uid,
-            namename:username,
+            name:username,
             email:user.email,
             createdAt: serverTimestamp(),
         })
@@ -70,6 +70,7 @@ export const registerUsers = async(email, password, username)=>{
 export const loginUser = async(email, password) =>{
     try{    
         const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        console.log(email, password)
         console.log(`user login: ${userCredential.user.email}`);
         return userCredential.user;
     }catch(error){

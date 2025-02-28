@@ -32,8 +32,7 @@ function Login(){
         e.preventDefault();
         setError("");
         try{
-        const userCrential = await loginUser(email, password);
-        const user = userCrential.user;
+        const user = await loginUser(email, password);
             alert(`Login Successful: Welcome back ${user.email}`);
         }catch (err){
             setError(err.message);
