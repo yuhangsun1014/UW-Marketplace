@@ -22,7 +22,7 @@
 
 import React, { useState } from 'react';
 import { registerUsers } from "../firebaseAuth";
-import './Login.css';
+import "./Register.css";
 
 function Register() {
   // Original form data state

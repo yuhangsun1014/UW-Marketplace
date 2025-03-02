@@ -20,7 +20,6 @@
 
 import React, {useState} from "react";
 import { loginUser } from "../firebaseAuth";
-
 import "./Login.css"
 
 function Login(){
@@ -38,28 +37,76 @@ function Login(){
             setError(err.message);
         }
     };
+
     return(
-        <div className = "login-container">
-            <h2>Login</h2>
-            {error && <p className = "error-message">{error}</p>}
-            <form onSubmit={handleLogin}>
-                <input
-                    type="email"
-                    placeholder="email "
-                    value = {email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                />
-                <input type="passwprd"
-                    placeholder="password"
-                    value = {password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                />
-                <button type = "submit">Login</button>
-            </form>
+        <div className="login-container">
+            {/* Left side - Form */}
+            <div className="login-form-container">
+                <div className="login-form-wrapper">
+                    <div className="login-logo">
+                        <div className="logo-icon">📚</div>
+                        <h2 className="logo-text">StudentMarket</h2>
+                    </div>
+                    
+                    <h1 className="login-title">Welcome Back!</h1>
+                    <p className="login-subtitle">Enter your credentials to access your account</p>
+                    
+                    {error && <p className="error-message">{error}</p>}
+                    
+                    <form onSubmit={handleLogin}>
+                        <div className="form-group">
+                            <label htmlFor="email" className="form-label">Email Address</label>
+                            <input
+                               type="email"
+                               placeholder="email "
+                               value = {email}
+                               onChange={(e) => setEmail(e.target.value)}
+                               required
+                            />
+                        </div>
+                        
+                        <div className="form-group">
+                            <label htmlFor="password" className="form-label">Password</label>
+                            <input type="passwprd"
+                               placeholder="password"
+                               value = {password}
+                               onChange={(e) => setPassword(e.target.value)}
+                               required
+                            />
+                        </div>
+                        
+                        <button type = "submit">Login</button>
+
+                    </form>
+                    
+                    <p className="register-link-container">
+                        Don't have an account? <a href="#" className="register-link">Sign up</a>
+                    </p>
+                </div>
+            </div>
+            
+            {/* Right side - Image (same as registration page) */}
+            <div className="login-image-container">
+                <div className="image-overlay"></div>
+                <div className="image-content-container">
+                    <div className="image-content">
+                        <h2 className="image-title">Student Market Place</h2>
+                        <div className="image-wrapper">
+                            <img 
+                                src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
+                                alt="Student marketplace items" 
+                                className="hero-image"
+                            />
+                            <div className="image-icon-container">
+                                <div className="image-icon">📚</div>
+                            </div>
+                        </div>
+                        <p className="image-description">Buy, sell, and trade textbooks, dorm essentials, and more!</p>
+                    </div>
+                </div>
+            </div>
         </div>
     );
-
 }
+
 export default Login;
