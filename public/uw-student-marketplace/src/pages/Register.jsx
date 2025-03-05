@@ -23,6 +23,7 @@
 import React, { useState } from 'react';
 import { registerUsers } from "../firebaseAuth";
 import "./Register.css";
+import { Link } from 'react-router-dom';
 
 function Register() {
   // Original form data state
@@ -42,13 +43,11 @@ function Register() {
             return;
         }
         try{
-        const userCrential = await registerUsers(email, password,username);
-
-        const user = userCrential.user;
-            alert(`Register Successful: Welcome ${user.username}`);
-            return userCrential;
-        }catch (error){
-            setError(error.message);
+        const user = await registerUsers(email, password,username);
+            alert(`Register Successful: Welcome ${username}`);
+            return user;
+        }catch (err){
+            setError(err.message);
         }
         
     };
@@ -126,7 +125,7 @@ function Register() {
          </form>
           
           <p className="login-link-container">
-            Have an account? <a href="#" className="login-link">Sign in</a>
+            Have an account? <Link to="/Login" className="login-link">Sign in</Link>
           </p>
         </div>
       </div>

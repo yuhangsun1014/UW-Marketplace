@@ -3,7 +3,10 @@ import TestAuth from "./testAuth";
 import {BrowserRouter as  Router, Routes, Route} from "react-router-dom";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import Footer from "./components/Footer";
 import Header from "./components/Header";
+import "./App.css"
+
 function App() {
   return (
     <Router>
@@ -17,7 +20,7 @@ function App() {
           <Route path="/Login" element={<Login/>}/>
           <Route path="/Register" element={<Register/>}/>
           <Route path="/Header" element={<Header/>}/>
-
+          
         </Routes>
 
 
@@ -25,7 +28,7 @@ function App() {
         <input type="text" id="search-input" placeholder="Search..." />
         <button id="search-button">Search</button>
       </div>
-
+      <Footer />
     </div >
     </Router>
   );
