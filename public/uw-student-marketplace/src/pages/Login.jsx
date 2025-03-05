@@ -17,10 +17,12 @@
  * @version 1.0
  * @since 2025-02-25
  */
-
+import {doc, getDoc} from "firebase/firestore";
+import { db } from "../Firebase-config";
 import React, {useState} from "react";
 import { loginUser } from "../firebaseAuth";
 import "./Login.css"
+import { Link } from "react-router-dom";
 
 function Login(){
     const [email, setEmail] = useState("");
@@ -31,10 +33,20 @@ function Login(){
         e.preventDefault();
         setError("");
         try{
-        const user = await loginUser(email, password);
-            alert(`Login Successful: Welcome back ${user.email}`);
+            const user = await loginUser(email, password);
+            // Fetch user data from Firestore
+            const userDocRef = doc(db, "users", user.uid);
+            const userDoc = await getDoc(userDocRef);
+            if(userDoc.exists()){
+                const username = userDoc.data().name;
+                alert(`Login Successful: Welcome back ${username}`);
+            }            
         }catch (err){
-            setError(err.message);
+            if (err.code === "auth/invalid-credential") {
+                setError("Invalid email or password. Please try again.");
+            }else{
+                setError(err.message);
+            }
         }
     };
 
@@ -85,7 +97,7 @@ function Login(){
                     </form>
                     
                     <p className="register-link-container">
-                        Don't have an account? <a href="#" className="register-link">Sign up</a>
+                        Don't have an account? <Link to = "/Register" className="register-link">Sign up</Link>
                     </p>
                 </div>
             </div>
