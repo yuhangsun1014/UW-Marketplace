@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
+
 import './Header.css';
 
 function Header() {
   const [searchQuery, setSearchQuery] = useState('');
+  const navigate = useNavigate();
+  const location = useLocation();
+
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -48,10 +53,11 @@ function Header() {
               Sell Items
             </button>
             <div class="auth-buttons">
-              <button class="login-button">
+              <button class="login-button"onClick={() => navigate('/login')}>
+              
                 Log In
               </button>
-              <button class="signup-button">
+              <button class="signup-button"onClick={() => navigate('/register')}>
                 Sign up
               </button>
             </div>
