@@ -35,11 +35,11 @@ import { setDoc, doc, serverTimestamp } from "firebase/firestore";
  */
 export const registerUsers = async(email, password, username)=>{
     
-    let userCredential;
+    let user;
     try{
-        userCredential = await createUserWithEmailAndPassword(getAuth(), email, password);
-        console.log("userCredential: " + userCredential);
-        const user = userCredential.user;
+        const userCredential = await createUserWithEmailAndPassword(getAuth(), email, password);
+        user = userCredential.user;
+        console.log(`user email: ${user.email}, username: ${username}`);
 
         await setDoc(doc(db,"users",user.uid),{
             userid:user.uid,
@@ -51,9 +51,16 @@ export const registerUsers = async(email, password, username)=>{
         console.log(`${username} saved to firestore`);
 
     }catch(error){
-        console.error(`Error saving: ${username}`);
+        console.error("error object: ", error);
+        if(error.code === "auth/email-already-in-use"){
+            throw new Error(`${email} is already registered, please sign into your account.`);
+        }else if(error.code === "auth/weak-password"){
+            throw new Error("password is too weak, password needs to be at least 6 characters long!");
+        }else{
+            throw error;
+        }
     }
-    return userCredential;
+    return user;
 }
 
 /**
@@ -74,7 +81,7 @@ export const loginUser = async(email, password) =>{
         console.log(`user login: ${userCredential.user.email}`);
         return userCredential.user;
     }catch(error){
-        console.error("Login error");
+        console.error("Login error")
         throw error;
     }
 }
