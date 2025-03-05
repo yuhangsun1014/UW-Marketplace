@@ -11,15 +11,13 @@ function App() {
   return (
     <Router>
     <div>
-      <h1 id="title">UW Marketplace</h1>
-      <h2 id="opening_tag">A Safe and Easy way to buy and sell at the University of Washington !</h2>
-      
-
+    
         <Routes>
           {/* <Route path="/testAuth" element={<TestAuth />} /> */}
           <Route path="/Login" element={<Login/>}/>
           <Route path="/Register" element={<Register/>}/>
-          <Route path="/Header" element={<Header/>}/>
+          <Route path="/" element={<Header/>}/>
+          
           
         </Routes>
 
