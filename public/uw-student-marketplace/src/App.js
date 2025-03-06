@@ -16,7 +16,6 @@ function App() {
     <div>
     
         <Routes>
-          {/* <Route path="/testAuth" element={<TestAuth />} /> */}
           <Route path="/Login" element={<Login/>}/>
           <Route path="/Register" element={<Register/>}/>
           <Route path="/" element={<Header/>}/>
