@@ -12,18 +12,19 @@ import "./App.css"
 
 function App() {
   return (
+    
     <Router>
+    <Header />
     <div>
     
         <Routes>
           <Route path="/Login" element={<Login/>}/>
           <Route path="/Register" element={<Register/>}/>
-          <Route path="/" element={<Header/>}/>
           <Route path="/ContactSellerPage" element={<ContactSellerPage/>}/>
           
           
         </Routes>
-
+  
       <div className="search-container">
         <input type="text" id="search-input" placeholder="Search..." />
         <button id="search-button">Search</button>
