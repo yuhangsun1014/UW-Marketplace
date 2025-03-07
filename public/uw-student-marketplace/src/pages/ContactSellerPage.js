@@ -13,7 +13,6 @@ function ContactSellerPage() {
           <ContactSeller />
         </MiddleSection>
       </div>
-      <Footer />
     </div>
   );
 }

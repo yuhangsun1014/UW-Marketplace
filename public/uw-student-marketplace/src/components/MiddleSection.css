@@ -4,5 +4,7 @@
     flex-grow: 1; /* Allows the middle section to expand */
     background-color: #c5baffcb; /* Or your desired color */
     padding: 20px;
+    min-height: calc(100vh - 180px);
+
     /* Add any other styling you need here */
   }
