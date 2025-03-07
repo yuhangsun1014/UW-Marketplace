@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation, Link } from 'react-router-dom';
 
 import './Header.css';
 
@@ -76,12 +76,24 @@ function Header() {
          {/* Navigation menu */}
         <nav class="main-nav">
           <ul class="nav-menu">
-            <li class="nav-item">Books</li>
-            <li class="nav-item">Furniture</li>
-            <li class="nav-item">Electronics</li>
-            <li class="nav-item">Stationery</li>
-            <li class="nav-item">Bags</li>
-            <li class="nav-item">Lab Equipments</li>
+            <li class="nav-item">
+              <Link to="/Books">Books</Link>
+            </li>
+            <li class="nav-item">
+              <Link to="/Furniture">Furniture</Link>
+            </li>
+            <li class="nav-item">
+              <Link to="/Electronics">Electronics</Link>
+            </li>
+            <li class="nav-item">
+              <Link to="/Stationery">Stationery</Link>
+            </li>
+            <li class="nav-item">
+              <Link to="/Bags">Bags</Link>
+            </li>
+            <li class="nav-item">
+              <Link to="/LabEquipment">Lab Equipment</Link>
+            </li>
           </ul>
         </nav>
       </header>

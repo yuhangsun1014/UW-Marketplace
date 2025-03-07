@@ -194,3 +194,9 @@
     flex-wrap: wrap;
   }
 }
+
+.nav-menu .nav-item a {
+  text-decoration: none;
+  color: inherit;
+}
+
