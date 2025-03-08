@@ -15,6 +15,7 @@ import Bags from "./pages/Bags";
 import LabEquipment from "./pages/LabEquipment";
 
 import "./App.css"
+import SellItemPage from "./pages/SellItemPage";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
           <Route path="/Stationery" element={<Stationery/>}/>
           <Route path="/Bags" element={<Bags/>}/>
           <Route path="/LabEquipment" element={<LabEquipment/>}/>
+          <Route path="/SellItemPage" element={<SellItemPage/>}/>
 
           
           
