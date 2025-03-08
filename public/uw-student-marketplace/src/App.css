@@ -45,3 +45,11 @@
   min-height: 100vh; /* Ensure the container takes up the full viewport height */
 }
 
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 20px; 
+  max-width: 1200px; 
+  margin: 0 auto; 
+  padding: 20px; 
+}

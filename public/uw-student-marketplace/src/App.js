@@ -13,17 +13,20 @@ import Electronics from "./pages/Electronics";
 import Stationery from "./pages/Stationery";
 import Bags from "./pages/Bags";
 import LabEquipment from "./pages/LabEquipment";
+import Home from "./pages/Home";
 
 import "./App.css"
 import SellItemPage from "./pages/SellItemPage";
 
+//Removed the buttom search box, it is duplicated with the top one
 function App() {
   return (
     
     <Router>
-    <Header />
-    <div>
+        <Header />
+    
         <Routes>
+          <Route path="/" element={<Home/>}/>
           <Route path="/Login" element={<Login/>}/>
           <Route path="/Register" element={<Register/>}/>
           <Route path="/ContactSellerPage" element={<ContactSellerPage/>}/>
@@ -34,17 +37,10 @@ function App() {
           <Route path="/Bags" element={<Bags/>}/>
           <Route path="/LabEquipment" element={<LabEquipment/>}/>
           <Route path="/SellItemPage" element={<SellItemPage/>}/>
-
-          
-          
         </Routes>
   
-      <div className="search-container">
-        <input type="text" id="search-input" placeholder="Search..." />
-        <button id="search-button">Search</button>
-      </div>
       <Footer />
-    </div >
+  
     </Router>
   );
 }

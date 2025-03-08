@@ -2,10 +2,6 @@
 
 import React from 'react';
 import './ContactSeller.css'; // Create ContactSeller.css
-import Header from './Header';
-import Footer from './Footer';
-import MiddleSection from './MiddleSection';
-
 
 function ContactSeller() {
   return (

@@ -21,10 +21,13 @@ function Header() {
         <div class="top-nav">
            {/* Logo */}
           <div class="logo">
-            <img 
-              src="../src/Assets/website_logo.jpg" 
-              alt="market place logo" 
-            />
+            {/* Link to Home page by logo */}
+            <Link to="/">
+                <img 
+                  src="../src/Assets/website_logo.jpg" 
+                  alt="market place logo" 
+                />
+              </Link>
           </div>
   
           {/* Search bar */}
