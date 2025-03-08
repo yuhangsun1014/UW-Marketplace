@@ -7,8 +7,6 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 import MiddleSection from "./components/MiddleSection";
 import ContactSellerPage from './pages/ContactSellerPage';
-import SellItemPage from './pages/SellItemPage'; // Import the page
-
 
 import "./App.css"
 
@@ -18,13 +16,10 @@ function App() {
     <Router>
     <Header />
     <div>
-    
         <Routes>
           <Route path="/Login" element={<Login/>}/>
           <Route path="/Register" element={<Register/>}/>
           <Route path="/ContactSellerPage" element={<ContactSellerPage/>}/>
-          <Route path="/SellItemPage" element={<SellItemPage/>} />
-
           
           
         </Routes>
