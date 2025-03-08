@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
+import electronicsImage from '../Assets/website_logo.jpg';
+
 
 import './Header.css';
 
@@ -52,7 +54,7 @@ function Header() {
   
             {/* Action buttons */}
           <div class="action-buttons">
-            <button class="sell-button">
+            <button class="sell-button" onClick={() => navigate('/SellItemPage')}>
               Sell Items
             </button>
             <div class="auth-buttons">

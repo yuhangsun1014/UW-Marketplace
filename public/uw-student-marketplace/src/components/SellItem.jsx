@@ -1,34 +1,53 @@
 // src/components/SellItem.jsx
 
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import './SellItem.css';
 
 function SellItem() {
   const [selectedFile, setSelectedFile] = useState(null);
+  const [selectedCondition, setSelectedCondition] = useState(null);
+  const fileInputRef = useRef(null);
+
+  const handleButtonClick = () => {
+    fileInputRef.current.click();
+  };
 
   const handleFileChange = (event) => {
     setSelectedFile(event.target.files[0]);
   };
 
-  const handleDrop = (event) => {
-    event.preventDefault();
-    const file = event.dataTransfer.files[0];
-    setSelectedFile(file);
+  const handleConditionClick = (condition) => {
+    setSelectedCondition(condition);
   };
 
-  const handleDragOver = (event) => {
-    event.preventDefault();
-  };
+  const conditionButtons = [
+    {
+      label: 'Excellent',
+      description: 'Unopened Packaging, unused, as good as new',
+    },
+    {
+      label: 'Very Good',
+      description: 'Packaging opened, without tags but lightly used',
+    },
+    {
+      label: 'Good',
+      description: 'Gently used. One/Few minor flaws. Fully functional.',
+    },
+    {
+      label: 'Fair',
+      description: 'Heavily user. Functional with multiple flaws/defects',
+    },
+    {
+      label: 'Poor',
+      description: 'Major flaws. Maybe with some functional issues',
+    },
+  ];
 
   return (
     <div className="sell-item-form">
       <div className="photos-section">
-        <h2>Photos</h2>
-        <div
-          className="upload-box"
-          onDrop={handleDrop}
-          onDragOver={handleDragOver}
-        >
+        <h2>Photo</h2>
+        <div className="upload-box">
           {selectedFile ? (
             <img
               src={URL.createObjectURL(selectedFile)}
@@ -37,16 +56,18 @@ function SellItem() {
             />
           ) : (
             <>
+              <button className="upload-button" onClick={handleButtonClick}>
+                Upload Picture
+              </button>
               <input
                 type="file"
+                ref={fileInputRef}
                 id="photo-upload"
                 accept="image/*"
                 onChange={handleFileChange}
+                style={{ display: 'none' }}
               />
-              <label htmlFor="photo-upload" className="upload-button">
-                Upload Photos
-              </label>
-              <p>or drag and drop up to 10 photos</p>
+              <p className="upload-text">or drag and drop picture</p>
             </>
           )}
         </div>
@@ -76,11 +97,18 @@ function SellItem() {
         <div className="form-group">
           <label>Condition</label>
           <div className="condition-buttons">
-            <button>Excellent</button>
-            <button>Very Good</button>
-            <button>Good</button>
-            <button>Fair</button>
-            <button>Poor</button>
+            {conditionButtons.map((condition, index) => (
+              <button
+                key={index}
+                className={`condition-button ${
+                  selectedCondition === condition.label ? 'selected' : ''
+                }`}
+                onClick={() => handleConditionClick(condition.label)}
+              >
+                <span>{condition.label}</span>
+                <p>{condition.description}</p>
+              </button>
+            ))}
           </div>
         </div>
         <div className="form-group">
@@ -120,7 +148,7 @@ function SellItem() {
       </div>
 
       <button type="submit" className="submit-button">
-        SUBMIT 13
+        SUBMIT
       </button>
     </div>
   );
