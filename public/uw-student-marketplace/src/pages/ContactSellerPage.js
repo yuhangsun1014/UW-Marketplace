@@ -7,7 +7,6 @@ import ContactSeller from '../components/ContactSeller';
 function ContactSellerPage() {
   return (
     <div>
-      <Header />
       <div className="app-container">
         <MiddleSection>
           <ContactSeller />
