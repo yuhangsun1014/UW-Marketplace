@@ -19,7 +19,7 @@ function Header() {
     const userSignInState = onAuthStateChanged(auth, async(user)=>{
       if(user){
         const docRef = doc(db, 'users', user.uid)
-        const userDoc = await getDoc(docRef);
+        const userDoc = await getDoc (docRef);
         if(userDoc.exists()){
           const data = userDoc.data();
           setDisplayName(data.name||user.email);
