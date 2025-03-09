@@ -1,5 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
+import { getAuth, onAuthStateChanged } from 'firebase/auth'; // get user data
+import { doc,getDoc } from 'firebase/firestore';
+import { db } from '../Firebase-config';
 import electronicsImage from '../Assets/website_logo.jpg';
 
 
@@ -7,9 +10,26 @@ import './Header.css';
 
 function Header() {
   const [searchQuery, setSearchQuery] = useState('');
+  const [displayName, setDisplayName] = useState('');
   const navigate = useNavigate();
   const location = useLocation();
 
+  useEffect(() => {
+    const auth = getAuth();
+    const userSignInState = onAuthStateChanged(auth, async(user)=>{
+      if(user){
+        const docRef = doc(db, 'users', user.uid)
+        const userDoc = await getDoc(docRef);
+        if(userDoc.exists()){
+          const data = userDoc.data();
+          setDisplayName(data.name||user.email);
+        }else{
+          setDisplayName('No Name');
+        }
+      }
+    });
+    return userSignInState;
+  },[]);
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -66,14 +86,14 @@ function Header() {
                 Sign up
               </button>
             </div>
-            <div class="user-profile">
+            <div class="user-profile" onClick={() => navigate('/UserProfilePage')}>
               <div class="user-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="user-svg">
                   <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
                   <circle cx="12" cy="7" r="4"></circle>
                 </svg>
               </div>
-              <span class="username">John Doe</span>
+              <span class="username">{displayName||'Guest'}</span>
             </div>
           </div>
         </div>
