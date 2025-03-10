@@ -1,5 +1,5 @@
 import MiddleSection from '../components/MiddleSection';
-
+import UserProfile from '../components/UserProfile';
 function UserProfilePage() {
     return(
         <div>
