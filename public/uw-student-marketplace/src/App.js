@@ -1,11 +1,10 @@
 import React from "react";
-import TestAuth from "./testAuth";
 import {BrowserRouter as  Router, Routes, Route, Navigate} from "react-router-dom";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
-import MiddleSection from "./components/MiddleSection";
+// import MiddleSection from "./components/MiddleSection";
 import ContactSellerPage from './pages/ContactSellerPage';
 import Books from './pages/Books';
 import Furniture from './pages/Furniture';
@@ -17,6 +16,7 @@ import Home from "./pages/Home";
 
 import "./App.css"
 import SellItemPage from "./pages/SellItemPage";
+import UserProfilePage from "./pages/UserProfilePage";
 
 //Removed the buttom search box, it is duplicated with the top one
 function App() {
@@ -37,6 +37,7 @@ function App() {
           <Route path="/Bags" element={<Bags/>}/>
           <Route path="/LabEquipment" element={<LabEquipment/>}/>
           <Route path="/SellItemPage" element={<SellItemPage/>}/>
+          <Route path="/UserProfilePage" element={<UserProfilePage/>}/>
         </Routes>
   
       <Footer />
