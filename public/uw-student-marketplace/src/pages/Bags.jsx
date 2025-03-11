@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import MiddleSection from '../components/MiddleSection';
 import BoxContainer from '../components/BoxContainer';
 import CategoryContainer from '../components/CategoryContainer';

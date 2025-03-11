@@ -3,7 +3,7 @@ import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { getAuth, onAuthStateChanged } from 'firebase/auth'; // get user data
 import { doc,getDoc } from 'firebase/firestore';
 import { db } from '../Firebase-config';
-import electronicsImage from '../Assets/website_logo.jpg';
+import logoImage from '../Assets/website_logo.jpg';
 
 
 import './Header.css';
@@ -46,7 +46,7 @@ function Header() {
             {/* Link to Home page by logo */}
             <Link to="/">
                 <img 
-                  src="../src/Assets/website_logo.jpg" 
+                  src={logoImage}
                   alt="market place logo" 
                 />
               </Link>
