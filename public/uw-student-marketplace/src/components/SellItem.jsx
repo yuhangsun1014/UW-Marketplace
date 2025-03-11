@@ -67,7 +67,7 @@ function SellItem() {
     }
 
     const storageRef = ref(storage, `products/${Date.now()}-${selectedFile.name}`);
-
+    // const storageRef = ref(db, `products/${Date.now()}-${selectedFile.name}`);
     try {
       // Upload image to Firebase Storage
       const uploadTask = uploadBytesResumable(storageRef, selectedFile);
