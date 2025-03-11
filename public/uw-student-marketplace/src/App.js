@@ -13,6 +13,8 @@ import Stationery from "./pages/Stationery";
 import Bags from "./pages/Bags";
 import LabEquipment from "./pages/LabEquipment";
 import Home from "./pages/Home";
+import ProductInfo from "./pages/ProductInfo";
+
 
 import "./App.css"
 import SellItemPage from "./pages/SellItemPage";
@@ -38,6 +40,7 @@ function App() {
           <Route path="/LabEquipment" element={<LabEquipment/>}/>
           <Route path="/SellItemPage" element={<SellItemPage/>}/>
           <Route path="/UserProfilePage" element={<UserProfilePage/>}/>
+          <Route path="/ProductInfo" element={<ProductInfo/>}/>
         </Routes>
   
       <Footer />
