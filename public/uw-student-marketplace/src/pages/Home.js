@@ -44,7 +44,7 @@ export default function Home() {
                   imageUrl={product.imageUrl}
                   name={product.title}
                   price={product.price}
-                  location={product.location}
+                  city={product.location}
                   condition={product.condition}
                   description={product.description}
 
