@@ -36,24 +36,7 @@ export default function Home() {
       <div className="app-container">
         <MiddleSection>
           <div className='grid-container'>
-<<<<<<< HEAD
-                {!!products ? products.slice(0, 6).map(product=>{
-                  const productData = product.data();
-                  const imageUrl = productData['imageUrl'];
-                  const name = productData['title'];
-                  const price = productData['price'];
-                  const city = productData['location'];
 
-                  return (<BoxContainer
-                    imageUrl={imageUrl}
-                    name={name}
-                    price={price}
-                    city={city}
-                  />)
-                }) : <BoxContainer /> }
-
-            </div>
-=======
             {filteredProducts.length > 0 ? (
               filteredProducts.slice(0, 6).map((product, index) => (
                 <BoxContainer
@@ -72,7 +55,7 @@ export default function Home() {
           {location.search && (
             <button onClick={() => navigate('/')}>Clear Search</button>
           )}
->>>>>>> 4038e2270b0a0df0d939e7e48c53dc5dc35e9f66
+
         </MiddleSection>
       </div>
     </div>
