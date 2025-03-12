@@ -19,6 +19,8 @@ function SellItem() {
   const [location, setLocation] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("");
+  const categories = ["Books", "Furniture", "Electronics", "Stationery", "Bags", "Lab Equipment"];
   const fileInputRef = useRef(null);
   const navigate = useNavigate();
 
@@ -28,6 +30,7 @@ function SellItem() {
   const [priceError, setPriceError] = useState("");
   const [locationError, setLocationError] = useState("");
   const [conditionError, setConditionError] = useState("");
+  const [categoryError, setCategoryError] = useState("");
 
   const handleButtonClick = () => {
     fileInputRef.current.click();
@@ -86,7 +89,7 @@ function SellItem() {
 
 
   const handleSubmit = async (event) => {
-    
+
     event.preventDefault();
 
     // form validation
@@ -101,6 +104,7 @@ function SellItem() {
     setPriceError("");
     setLocationError("");
     setConditionError("");
+    setCategoryError("");
 
     let hasError = false;
 
@@ -120,7 +124,7 @@ function SellItem() {
     if (!price.trim() || !/^\d+(\.\d{1,2})?$/.test(price) || parseFloat(price) <= 0) {
       setPriceError("Enter a valid price (positive number, up to two decimals)");
       hasError = true;
-    } 
+    }
 
     // Validate Location
     if (!location.trim()) {
@@ -131,6 +135,12 @@ function SellItem() {
     // Validate condition 
     if (!selectedCondition) {
       setConditionError("Please select a condition for the product.");
+      hasError = true;
+    }
+
+    // validate category
+    if (!selectedCategory) {
+      setCategoryError("Please select a category for the product.");
       hasError = true;
     }
 
@@ -161,6 +171,7 @@ function SellItem() {
           await addDoc(collection(db, "products"), {
             title,
             description,
+            category: selectedCategory,
             dateOfPurchase: `${date.month}/${date.day}/${date.year}`,
             condition: selectedCondition,
             price: Number(price),
@@ -236,13 +247,30 @@ function SellItem() {
             value={description}
             onChange={(e) => {
               setDescription(e.target.value);
-              setDescriptionError(""); 
+              setDescriptionError("");
             }}
             id="description"
             placeholder="Describe your product"
           ></textarea>
           {descriptionError && <span className="error-required">{descriptionError}</span>}
-
+        </div>
+        <div className="form-group">
+          <label htmlFor="category">Category <span className="error-required">*</span></label>
+          <select
+            id="category"
+            value={selectedCategory}
+            onChange={(e) => {
+              setSelectedCategory(e.target.value)
+              setCategoryError("");
+            }}>
+            <option value="">Select a category</option>
+            {categories.map((category, index) => (
+              <option key={index} value={category}>
+                {category}
+              </option>
+            ))}
+          </select>
+          <p>{categoryError && <span className="error-required">{categoryError}</span>}</p>
         </div>
         <div className="form-group">
           <label htmlFor="date">Date of Purchase</label>
@@ -276,7 +304,7 @@ function SellItem() {
             value={price}
             onChange={(e) => {
               setPrice(e.target.value);
-              setPriceError(""); 
+              setPriceError("");
             }}
             type="text"
             id="price"
@@ -290,7 +318,7 @@ function SellItem() {
             value={location}
             onChange={(e) => {
               setLocation(e.target.value);
-              setLocationError(""); 
+              setLocationError("");
             }}
             type="text"
             id="location"
