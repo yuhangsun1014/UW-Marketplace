@@ -24,9 +24,7 @@ function Stationery() {
                         description='Notebooks, pens, and all your writing essentials'
                     />
                     <div className='grid-container'>
-<<<<<<< HEAD
                         <BoxContainer />
-=======
                         {!!products ? products.slice(0, 3).map(product=>{
                             const productData = product.data();
                             const imageUrl = productData['imageUrl'];
@@ -41,7 +39,6 @@ function Stationery() {
                                 location={location}
                             />)
                         }) : <BoxContainer /> }
->>>>>>> 9f67d3c (retrieving product data from db, and fill up for home page and category pages)
                     </div>
 
                 </MiddleSection>

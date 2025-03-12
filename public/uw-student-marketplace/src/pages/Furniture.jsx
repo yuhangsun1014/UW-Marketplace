@@ -20,7 +20,7 @@ function Furniture() {
                     <CategoryContainer 
                         image={furnitureImage}
                         category='Furniture' 
-                        description='Quality furniture for our dorm or apartment'
+                        description='Quality furniture for your dorm or apartment'
                     />
                     <div className='grid-container'>
 

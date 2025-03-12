@@ -20,8 +20,8 @@ function LabEquipment() {
                 <MiddleSection>
                     <CategoryContainer 
                         image={labEquipmentImage}
-                        category='LabEquipment' 
-                        description='Scientific and laboratory equiment for your research'
+                        category='Lab Equipment' 
+                        description='Scientific and laboratory equipment for your research'
                     />
                     <div className='grid-container'>
 
