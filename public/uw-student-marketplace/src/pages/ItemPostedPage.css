@@ -1,0 +1,22 @@
+.successful-image{
+    width: 50%;
+    aspect-ratio: 2/3;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem auto;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 8px;
+}
+
+.successful-image .checkmark {
+    width: 200px;      /* control the size of the checkmark image */
+    height: auto; 
+    margin-bottom: 1rem; /* ensure the image aspect ratio is preserved */
+}
+
+.successful-image .posted-message{
+    font-family: sans-serif;
+    font-weight: bold;
+}
