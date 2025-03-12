@@ -9,11 +9,6 @@ function Home() {
         <MiddleSection>
             <div className='grid-container'>
                 <BoxContainer />
-                <BoxContainer />
-                <BoxContainer />
-                <BoxContainer />
-                <BoxContainer />
-                <BoxContainer />
             </div>
         </MiddleSection>
       </div>

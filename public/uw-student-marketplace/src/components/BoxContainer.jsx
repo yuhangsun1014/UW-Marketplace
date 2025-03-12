@@ -1,21 +1,13 @@
-import React from 'react';
-import './BoxContainer.css';
+import React from "react";
+import "./BoxContainer.css";
+import ProductList from "./ProductList";
 
 function BoxContainer() {
     return (
-      <div className="box-container">
-        <img className="box-image"/>
-        <div className="productName">
-          <h4>ProductName</h4>
-        </div>
-        <div className="productPrice">
-          <p>$0</p>
-        </div>
-        <div className="location">
-          <p>location</p>
-        </div>
+        <div className="box-container">
+            <ProductList />
         </div>
     );
-  }
-  
-  export default BoxContainer;
+}
+
+export default BoxContainer;

@@ -16,8 +16,7 @@ function Books() {
                     />
                     <div className='grid-container'>
                         <BoxContainer />
-                        <BoxContainer />
-                        <BoxContainer />
+                        
                     </div>
 
                 </MiddleSection>
