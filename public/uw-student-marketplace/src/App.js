@@ -19,6 +19,7 @@ import ProductInfo from "./pages/ProductInfo";
 import "./App.css"
 import SellItemPage from "./pages/SellItemPage";
 import UserProfilePage from "./pages/UserProfilePage";
+import ItemPostedPage from "./pages/ItemPostedPage";
 
 //Removed the buttom search box, it is duplicated with the top one
 function App() {
@@ -41,6 +42,7 @@ function App() {
           <Route path="/SellItemPage" element={<SellItemPage/>}/>
           <Route path="/UserProfilePage" element={<UserProfilePage/>}/>
           <Route path="/ProductInfo" element={<ProductInfo/>}/>
+          <Route path="/SellItemPage/ItemPostedPage" element={<ItemPostedPage/>}/>
         </Routes>
   
       <Footer />

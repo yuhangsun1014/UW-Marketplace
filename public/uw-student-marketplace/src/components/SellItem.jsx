@@ -6,6 +6,7 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { db, storage } from "../Firebase-config"
 import { collection, serverTimestamp, addDoc } from "firebase/firestore";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { useNavigate } from 'react-router-dom';
 
 function SellItem() {
   // product info
@@ -20,6 +21,7 @@ function SellItem() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const fileInputRef = useRef(null);
+  const navigate = useNavigate();
 
   const handleButtonClick = () => {
     fileInputRef.current.click();
@@ -59,6 +61,7 @@ function SellItem() {
 
 
   const handleSubmit = async (event) => {
+    
     event.preventDefault();
 
     if (!selectedFile) {
@@ -96,8 +99,8 @@ function SellItem() {
             imageUrl: downloadURL,
             createdAt: serverTimestamp(),
           });
-
-          alert("Listed product successfully!");
+          navigate('./ItemPostedPage');
+          // alert("Listed product successfully!");
 
           // clear all form details after submission
           setTitle('');
@@ -107,9 +110,11 @@ function SellItem() {
           setLocation('');
           setSelectedFile(null);
           setSelectedCondition(null);
+          
         } /*catch (error) {
       console.log(error);
       alert("Error uploading product");*/
+      
       );
     } catch (error) {
       console.error(error);
