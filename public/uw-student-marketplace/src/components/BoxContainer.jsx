@@ -29,7 +29,7 @@ function BoxContainer(props) {
                 <h4>{name}</h4>
             </div>
             <div className="productPrice">
-                <p>{price}</p>
+                <p>${price}</p>
             </div>
             <div className="city">
                 <p>{city}</p>

@@ -23,7 +23,7 @@ function ProductInfo() {
 
                     <div className="detail-container">
                         <h2 className="detail-container" id="productName">{name}</h2>
-                        <p className="detail-container" id="price">{price}</p>
+                        <p className="detail-container" id="price">${price}</p>
                         <p className="detail-container" id="location">Location - {city}</p>
                         <p className="detail-container" id="condition">Condition - {condition}</p>
                     </div>

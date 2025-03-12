@@ -45,6 +45,9 @@ export default function Home() {
                   name={product.title}
                   price={product.price}
                   location={product.location}
+                  condition={product.condition}
+                  description={product.description}
+
                 />
               ))
             ) : (

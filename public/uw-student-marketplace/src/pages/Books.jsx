@@ -31,6 +31,9 @@ function Books() {
                             const name = productData['title'];
                             const price = productData['price'];
                             const city = productData['location'];
+                            const condition = productData['condition'];
+                            const description = productData['description'];
+                            
                             
                             console.log(imageUrl, name, price, city);
                             return (<BoxContainer 
@@ -38,6 +41,8 @@ function Books() {
                                 name={name}
                                 price={price}
                                 city={city}
+                                condition={condition}
+                                description={description}
                             />)
                         }) : <BoxContainer /> }
                     </div>
