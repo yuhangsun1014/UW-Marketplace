@@ -31,14 +31,14 @@ function Bags() {
                             const imageUrl = productData['imageUrl'];
                             const name = productData['title'];
                             const price = productData['price'];
-                            const location = productData['location'];
+                            const city = productData['location'];
                             
-                            console.log(imageUrl, name, price, location);
+                            console.log(imageUrl, name, price, city);
                             return (<BoxContainer 
                                 imageUrl={imageUrl}
                                 name={name}
                                 price={price}
-                                location={location}
+                                city={city}
                             />)
                         }) : <BoxContainer /> }
                     </div>

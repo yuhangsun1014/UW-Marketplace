@@ -22,13 +22,13 @@ export default function Home() {
                   const imageUrl = productData['imageUrl'];
                   const name = productData['title'];
                   const price = productData['price'];
-                  const location = productData['location'];
+                  const city = productData['location'];
 
                   return (<BoxContainer
                     imageUrl={imageUrl}
                     name={name}
                     price={price}
-                    location={location}
+                    city={city}
                   />)
                 }) : <BoxContainer /> }
 

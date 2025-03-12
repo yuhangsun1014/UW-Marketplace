@@ -15,7 +15,16 @@
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     max-width: 500px;
     height: 400px;
-    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .product-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; 
+    display: block;
   }
 
   .detail-container {
