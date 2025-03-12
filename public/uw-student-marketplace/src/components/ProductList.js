@@ -1,35 +1,16 @@
-import React, { useEffect, useState } from "react";
-import { db } from "../Firebase-config"; // Ensure your Firebase config is set up correctly
-import { collection, getDocs } from "firebase/firestore";
-import ProductCard from "./ProductCard"; // This component displays each product
-import "./BoxContainer.css"; // Ensure the styles are applied
+import { db } from "../Firebase-config";
+import { collection, getDocs, where, query } from "firebase/firestore";
 
-function ProductList() {
-    const [products, setProducts] = useState([]);
+export default async function fetchProducts(category = null) {
+    console.log(category);
+    let q;
+    if (category !== null) {
+        q = query(collection(db, "products"), where("imageUrl", "!=", null), where("category", "==", category));
+    } else {
+        q = query(collection(db, "products"), where("imageUrl", "!=", null));
+    }
+    
+    const querySnapshot = await getDocs(q);
 
-    useEffect(() => {
-        const fetchProducts = async () => {
-            try {
-                const querySnapshot = await getDocs(collection(db, "products"));
-                const productList = querySnapshot.docs.map((doc) => ({
-                    id: doc.id,
-                    ...doc.data(),
-                }));
-                setProducts(productList);
-            } catch (error) {
-                console.error("Error fetching products: ", error);
-            }
-        };
-        fetchProducts();
-    }, []);
-
-    return (
-        <div className="product-list">
-            {products.map((product) => (
-                <ProductCard key={product.id} product={product} />
-            ))}
-        </div>
-    );
-}
-
-export default ProductList;
+    return querySnapshot;
+};
