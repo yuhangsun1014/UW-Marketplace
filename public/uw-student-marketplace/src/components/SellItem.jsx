@@ -1,10 +1,10 @@
 // src/components/SellItem.jsx
 
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import './SellItem.css';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { db, storage } from "../Firebase-config"
-import { collection, serverTimestamp, addDoc } from "firebase/firestore";
+import { collection, serverTimestamp, addDoc, doc, getDoc } from "firebase/firestore";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { useNavigate } from 'react-router-dom';
 
@@ -15,13 +15,19 @@ function SellItem() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [date, setDate] = useState({ day: '', month: '', year: '' });
-  const [condition, setCondition] = useState("");
   const [price, setPrice] = useState("");
   const [location, setLocation] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const fileInputRef = useRef(null);
   const navigate = useNavigate();
+
+  // error handling
+  const [titleError, setTitleError] = useState("");
+  const [descriptionError, setDescriptionError] = useState("");
+  const [priceError, setPriceError] = useState("");
+  const [locationError, setLocationError] = useState("");
+  const [conditionError, setConditionError] = useState("");
 
   const handleButtonClick = () => {
     fileInputRef.current.click();
@@ -33,6 +39,7 @@ function SellItem() {
 
   const handleConditionClick = (condition) => {
     setSelectedCondition(condition);
+    setConditionError("");
   };
 
   const conditionButtons = [
@@ -50,7 +57,7 @@ function SellItem() {
     },
     {
       label: 'Fair',
-      description: 'Heavily user. Functional with multiple flaws/defects',
+      description: 'Heavily used. Functional with multiple flaws/defects',
     },
     {
       label: 'Poor',
@@ -58,19 +65,82 @@ function SellItem() {
     },
   ];
 
+  // get user authentication, name, email
+  useEffect(() => {
+    const auth = getAuth();
+    const userSignInState = onAuthStateChanged(auth, async (user) => {
+      if (user) {
+        const docRef = doc(db, 'users', user.uid)
+        const userDoc = await getDoc(docRef);
+        if (userDoc.exists()) {
+          const data = userDoc.data();
+          setName(data.name || user.email);
+          setEmail(user.email);
+        } else {
+          setName('Guest');
+        }
+      }
+    });
+    return userSignInState;
+  }, []);
 
 
   const handleSubmit = async (event) => {
     
     event.preventDefault();
 
+    // form validation
     if (!selectedFile) {
       alert("Please upload a product image");
       return;
     }
 
+    // Clear previous errors
+    setTitleError("");
+    setDescriptionError("");
+    setPriceError("");
+    setLocationError("");
+    setConditionError("");
+
+    let hasError = false;
+
+    // Validate Title
+    if (!title.trim()) {
+      setTitleError("Title is required");
+      hasError = true;
+    }
+
+    // Validate Description
+    if (!description.trim()) {
+      setDescriptionError("Description is required");
+      hasError = true;
+    }
+
+    // Validate Price
+    if (!price.trim() || !/^\d+(\.\d{1,2})?$/.test(price) || parseFloat(price) <= 0) {
+      setPriceError("Enter a valid price (positive number, up to two decimals)");
+      hasError = true;
+    } 
+
+    // Validate Location
+    if (!location.trim()) {
+      setLocationError("Location is required");
+      hasError = true;
+    }
+
+    // Validate condition 
+    if (!selectedCondition) {
+      setConditionError("Please select a condition for the product.");
+      hasError = true;
+    }
+
+    // stop form submission if there are errors
+    if (hasError) {
+      return;
+    }
+
     const storageRef = ref(storage, `products/${Date.now()}-${selectedFile.name}`);
-    // const storageRef = ref(db, `products/${Date.now()}-${selectedFile.name}`);
+
     try {
       // Upload image to Firebase Storage
       const uploadTask = uploadBytesResumable(storageRef, selectedFile);
@@ -98,6 +168,8 @@ function SellItem() {
             isSold: false,
             imageUrl: downloadURL,
             createdAt: serverTimestamp(),
+            sellerName: name,
+            sellerEmail: email,
           });
           navigate('./ItemPostedPage');
           // alert("Listed product successfully!");
@@ -110,11 +182,9 @@ function SellItem() {
           setLocation('');
           setSelectedFile(null);
           setSelectedCondition(null);
-          
         } /*catch (error) {
       console.log(error);
       alert("Error uploading product");*/
-      
       );
     } catch (error) {
       console.error(error);
@@ -156,17 +226,23 @@ function SellItem() {
       <div className="product-info-section">
         <h2>Product Info</h2>
         <div className="form-group">
-          <label htmlFor="title">Title</label>
+          <label htmlFor="title">Title <span className="error-required">*</span></label>
           <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} id="title" placeholder="What are you selling?" />
+          {titleError && <span className="error-required">{titleError}</span>}
         </div>
         <div className="form-group">
-          <label htmlFor="description">Description</label>
+          <label htmlFor="description">Description <span className="error-required">*</span></label>
           <textarea
             value={description}
-            onChange={(e) => setDescription(e.target.value)}
+            onChange={(e) => {
+              setDescription(e.target.value);
+              setDescriptionError(""); 
+            }}
             id="description"
-            placeholder="Describe your product/service"
+            placeholder="Describe your product"
           ></textarea>
+          {descriptionError && <span className="error-required">{descriptionError}</span>}
+
         </div>
         <div className="form-group">
           <label htmlFor="date">Date of Purchase</label>
@@ -178,7 +254,7 @@ function SellItem() {
           </div>
         </div>
         <div className="form-group">
-          <label>Condition</label>
+          <label>Condition <span className="error-required">*</span></label>
           <div className="condition-buttons">
             {conditionButtons.map((condition, index) => (
               <button
@@ -192,42 +268,51 @@ function SellItem() {
               </button>
             ))}
           </div>
+          {conditionError && <span className="error-required">{conditionError}</span>}
         </div>
         <div className="form-group">
-          <label htmlFor="price">Set a price</label>
+          <label htmlFor="price">Price <span className="error-required">*</span></label>
           <input
             value={price}
-            onChange={(e) => setPrice(e.target.value)}
+            onChange={(e) => {
+              setPrice(e.target.value);
+              setPriceError(""); 
+            }}
             type="text"
             id="price"
-            placeholder="Set a price for your product/service"
+            placeholder="Set a price for your product"
           />
+          {priceError && <span className="error-required">{priceError}</span>}
         </div>
         <div className="form-group">
-          <label htmlFor="location">Location</label>
+          <label htmlFor="location">Location <span className="error-required">*</span></label>
           <input
             value={location}
-            onChange={(e) => setLocation(e.target.value)}
+            onChange={(e) => {
+              setLocation(e.target.value);
+              setLocationError(""); 
+            }}
             type="text"
             id="location"
-            placeholder="Enter a locality in the city selected"
+            placeholder="Enter the location or neighborhood"
           />
+          {locationError && <span className="error-required">{locationError}</span>}
         </div>
       </div>
 
       <div className="confirm-details-section">
         <h2>Confirm your details</h2>
         <div className="form-group">
-          <label htmlFor="name">Name</label>
+          <label htmlFor="name">Name </label>
           <div className="detail-row">
-            <span>John McCarthy</span>
+            <span>{name}</span>
             <button>Edit</button>
           </div>
         </div>
         <div className="form-group">
           <label htmlFor="email">Email Address</label>
           <div className="detail-row">
-            <span>xxxx@uw.edu</span>
+            <span>{email}</span>
             <button>Edit</button>
           </div>
         </div>
