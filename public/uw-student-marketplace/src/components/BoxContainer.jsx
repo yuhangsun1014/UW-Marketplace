@@ -22,6 +22,7 @@ function BoxContainer(props) {
     };
     
     return (
+
         <div className="box-container" onClick={handleClick} style={{ cursor: 'pointer' }}>
             <img className="box-image" src={imageUrl} alt={name} />
             <div className="productName">
@@ -33,6 +34,7 @@ function BoxContainer(props) {
             <div className="city">
                 <p>{city}</p>
             </div>
+
         </div>
     );
 }
