@@ -1,11 +1,30 @@
+/*
+ * File: Header.jsx
+ * Description: This component renders a  header that contains the logo, search bar,
+ *              action buttons, and navigation menu.
+ *              The header is displayed on every page of the application.
+ *              The header also displays the user's name if they are logged in.
+ *                                                                               
+ * States:
+ * - searchQuery (string): The search query entered by the user.
+ * - displayName (string): The name of the user if they are logged in.
+ * - navigate (function): A function that allows the user to navigate to a different page.
+ * - location (object): An object that contains information about the current URL.
+ *         
+ * Methods:
+ * - handleSearch(e): Handles the search functionality and redirects the user to the search results page.
+ *       
+ * @author Rinkal Faldu
+ * @version 1.0
+ * @since 2025-02-25
+ */
+
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { getAuth, onAuthStateChanged } from 'firebase/auth'; // get user data
 import { doc,getDoc } from 'firebase/firestore';
 import { db } from '../Firebase-config';
 import logoImage from '../Assets/website_logo.jpg';
-
-
 import './Header.css';
 
 function Header() {

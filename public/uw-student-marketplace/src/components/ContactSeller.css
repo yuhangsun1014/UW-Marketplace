@@ -1,5 +1,11 @@
-/* src/pages/ContactSeller.css */
+/* 
+-File: ContactSeller.css
+-Description: CSS file for the ContactSeller component
+-Contains CSS styling for the ContactSeller component
 
+*/
+
+/*main container*/
 .contact-seller-container {
     text-align: center;
     padding: 20px;
@@ -14,11 +20,11 @@
     padding:20px;
     border-radius: 20px;
   }
-  
+  /* style form lable and input */
   .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
   }
-  
+
   .form-group label {
     display: block;
     margin-bottom: 5px;
@@ -34,9 +40,9 @@
   .form-group textarea {
     resize: vertical;
   }
-  
-  .contact-form button {
-    
+
+  /* style submit button */
+  .contact-form button { 
     width: 100%;
     background-color: #6d28d9;
     color: white;

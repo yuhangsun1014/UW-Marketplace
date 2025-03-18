@@ -1,3 +1,7 @@
+/* Header styles 
+  -File: Header.css
+  
+*/
 * {
   margin: 0;
   padding: 0;
@@ -67,7 +71,7 @@
   color: #6b7280;
 }
 
-/* Action buttons */
+/* Action buttons (e.g., sell, login, signup)*/
 .action-buttons {
   display: flex;
   align-items: center;
@@ -126,6 +130,7 @@
   background-color: #f3f4f6;
 }
 
+/* User profile */
 .user-profile {
   display: flex;
   align-items: center;
@@ -173,7 +178,7 @@
 }
 
 
-/* Responsive adjustments */
+/* Responsive adjustments for smaller screens */
 @media (max-width: 768px) {
   .top-nav {
     flex-direction: column;

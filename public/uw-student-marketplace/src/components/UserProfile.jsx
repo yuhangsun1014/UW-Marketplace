@@ -1,3 +1,29 @@
+/*
+ * File: UserProflie.jsx
+ * Description: This component renders the user profile page. 
+ *              The user profile page displays the user's name, email, and profile picture and when account is created. 
+ *               The user can upload a new profile picture by selecting an image file.
+ *              The user's profile picture is stored in Firebase Storage.  
+ *              The user profile page is only accessible to logged-in users.
+ *              If the user is not logged in, the user profile page displays a message indicating that the user is a guest.
+ *                                                                                           
+ * States:
+ * - displayName (string): The name of the user.
+ * - userEmail (string): The email of the user.
+ * - createDate (string): The date when the user account was created.
+ * - profilePic (file): The profile picture of the user.
+ * - uploading (boolean): A flag to indicate if the profile picture is being uploaded.
+ * - previewURL (string): The preview URL of the profile picture.
+          
+ * Methods:
+ * - handleFileChange(e): Handles the file change event and sets the profile picture.
+ * - handleProfilePic(event): Handles the profile picture upload event and uploads the profile picture to Firebase Storage.
+ * - UserProfile(): This function returns the user profile page component.
+        
+ * @author 
+ * @version 1.0
+ * @since 2025-02-25
+ */
 import React, { useState,useEffect } from "react";
 import { getAuth,onAuthStateChanged, updateProfile } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore";
