@@ -1,3 +1,25 @@
+/*
+ * File: Bags.jsx
+ * Description: This component renders the Bags page. The Bags page displays a list of bags
+ *              available for sale. The page contains a category container  that displays the category name
+ *              and description top of each category page. The page also contains a grid layout of box containers that display the
+ *              image, name, price, and city of each bag. The user can click on a box container to view the
+ *              product details on the product info page. 
+ *             
+ *                                                                               
+ * States:
+ * - products (array): An array of products containing the list of bags products fetched from the database.
+ *       
+ * Methods:
+ * - Bags(): import middle section, box container, category container and fetchProducts
+ *           This function returns the Bags page component. 
+ * - useEffect(): This function is used to fetch the list of bags products from the Firestore database
+ *                and update the state with the fetched products. It runs once when the component is mounted.
+ *        
+ * @author 
+ * @version 1.0
+ * @since 2025-02-25
+ */
 import React, { useState, useEffect } from 'react';
 import MiddleSection from '../components/MiddleSection';
 import BoxContainer from '../components/BoxContainer';

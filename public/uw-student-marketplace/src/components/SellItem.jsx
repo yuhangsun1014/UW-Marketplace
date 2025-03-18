@@ -29,22 +29,9 @@
  * - handleButtonClick(): Handles the click event on the upload button and triggers the file input.
  * - handleFileChange(event): Handles the file change event and sets the selected file.
  * - handleConditionClick(condition): Handles the click event on the condition button and sets the selected condition.
- *  - handleSubmit(event): Handles the form submission event and validates the form fields before listing the product.
+ * - handleSubmit(event): Handles the form submission event and validates the form fields before listing the product.
  * - SellItem(): This function returns the sell item component.
  * - useEffect(): A hook that runs after the component output has been rendered to the DOM.
- * - useState(): A hook that allows you to have state variables in functional components.
- * - useRef(): A hook that returns a mutable ref object whose .current property is initialized to the passed argument.
- * - getAuth(): Gets the Auth service for the default app or a given app.
- * - onAuthStateChanged(): Listens for changes to the user's sign-in state.
- * - collection(): Returns a CollectionReference instance that can be used to add documents to the collection.
- * - serverTimestamp(): Returns a sentinel used with set() or update() to include a server-generated timestamp in the written data.
- * - addDoc(): Adds a new document to the specified collection with the provided data.
- * - doc(): Returns a DocumentReference with the provided path.
- * - getDoc(): Reads the document referenced by the provided DocumentReference.
- * - ref(): Returns a Reference to the object at the provided path.
- * - uploadBytesResumable(): Uploads a blob to the Cloud Storage bucket referenced by the provided Reference.
- * - getDownloadURL(): Asynchronously retrieves a long-lived download URL with a revocable token.
- * - useNavigate(): A hook that returns the navigate function.
      
  * @author Rinkal Faldu
  * @version 1.0
