@@ -15,7 +15,6 @@
  * - Header(): This function returns the header component.
  * - useEffect(): This function is used to get the user's name from the database and update the state with the user's name.
  * - handleSearch(e): Handles the search functionality and redirects the user to the search results page.
- * -
  *       
  * @author Rinkal Faldu
  * @version 1.0
