@@ -5,34 +5,20 @@
  *             The user can submit the form to list the product for sale.
  *                                                                                           
  * States:
- * - selectedFile (File): The selected image file to upload.
- * - selectedCondition (string): The selected condition of the product.
- * - title (string): The title of the product.
- * - description (string): The description of the product.
- * - date (object): The date of purchase of the product.
- * - price (string): The price of the product.
- * - location (string): The location of the product.
- * - name (string): The name of the seller.
- * - email (string): The email of the seller.
- * - selectedCategory (string): The selected category of the product.
- * - categories (array): An array of product categories.
- * - fileInputRef (object): A reference to the file input element.
- * - navigate (function): A function that allows the user to navigate to a different page.
- * - titleError (string): The error message for the title field.
- * - descriptionError (string): The error message for the description field.
- * - priceError (string): The error message for the price field.
- * - locationError (string): The error message for the location field.
- * - conditionError (string): The error message for the condition field.
- * - categoryError (string): The error message for the category field.
+ * - selectedFile: Image file to upload
+ * - selectedCondition: Product condition
+ * - title, description, price, location, name, email, category: Product details
+ * - fileInputRef, navigate: Helper references and navigation function for pages
+ * - Errors: Form validation messages for each field
  *         
  * Methods: 
- * - handleButtonClick(): Handles the click event on the upload button and triggers the file input.
- * - handleFileChange(event): Handles the file change event and sets the selected file.
- * - handleConditionClick(condition): Handles the click event on the condition button and sets the selected condition.
- * - handleSubmit(event): Handles the form submission event and validates the form fields before listing the product.
- * - SellItem(): This function returns the sell item component.
- * - useEffect(): A hook that runs after the component output has been rendered to the DOM.
-     
+ * - handleButtonClick(): triggers the file input.
+ * - handleFileChange(event): sets the selected image
+ * - handleConditionClick(condition): sets the selected condition.
+ * - handleSubmit(event): validates and submits the form fields
+ * - handleSaveName(): validates edited name
+ * - handleSaveEmail(): validates edited email
+ *
  * @author Rinkal Faldu, Gabrielle Omega 
  * @version 1.0
  * @since 2025-02-25
@@ -58,6 +44,9 @@ function SellItem() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
+  const [isEditingName, setIsEditingName] = useState(false);
+  const [isEditingEmail, setIsEditingEmail] = useState(false);
+
   const categories = ["Books", "Furniture", "Electronics", "Stationery", "Bags", "Lab Equipment"];
   const fileInputRef = useRef(null);
   const navigate = useNavigate();
@@ -69,6 +58,8 @@ function SellItem() {
   const [locationError, setLocationError] = useState("");
   const [conditionError, setConditionError] = useState("");
   const [categoryError, setCategoryError] = useState("");
+  const [nameError, setNameError] = useState("");
+  const [emailError, setEmailError] = useState("");
 
   const handleButtonClick = () => {
     fileInputRef.current.click();
@@ -124,6 +115,24 @@ function SellItem() {
     });
     return userSignInState;
   }, []);
+
+  const handleSaveName = () => {
+    if (!name.trim()) {
+      setNameError("Name is required");
+      return; 
+    }
+    setNameError(""); 
+    setIsEditingName(false); 
+  };
+
+  const handleSaveEmail = () => {
+    if (!email.trim() || !/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email)) {
+      setEmailError("Please enter a valid email");
+      return; 
+    }
+    setEmailError(""); 
+    setIsEditingEmail(false); 
+  };
 
   const handleSubmit = async (event) => {
 
@@ -181,6 +190,16 @@ function SellItem() {
       hasError = true;
     }
 
+    if (isEditingEmail) {
+      setEmailError("Please enter a valid email");
+      hasError = true;
+    }
+
+    if (isEditingName) {
+      setNameError("Please enter a valid name");
+      hasError = true;
+    }
+
     // stop form submission if there are errors
     if (hasError) {
       return;
@@ -229,7 +248,7 @@ function SellItem() {
           setLocation('');
           setSelectedFile(null);
           setSelectedCondition(null);
-        } 
+        }
       );
     } catch (error) {
       console.error(error);
@@ -363,19 +382,49 @@ function SellItem() {
 
       <div className="confirm-details-section">
         <h2>Confirm your details</h2>
+
         <div className="form-group">
-          <label htmlFor="name">Name </label>
+          <label htmlFor="name">Name</label>
           <div className="detail-row">
-            <span>{name}</span>
-            <button>Edit</button>
+            {isEditingName ? (
+              <>
+                <input
+                  type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                />
+                <button onClick={handleSaveName}>Save</button>
+              </>
+            ) : (
+              <>
+                <span>{name}</span>
+                <button onClick={() => setIsEditingName(true)}>Edit</button>
+              </>
+            )}
           </div>
+          {nameError && <span className="error-required">{nameError}</span>}
         </div>
+
         <div className="form-group">
           <label htmlFor="email">Email Address</label>
           <div className="detail-row">
-            <span>{email}</span>
-            <button>Edit</button>
+            {isEditingEmail ? (
+              <>
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+                <button onClick={handleSaveEmail}>Save</button>
+              </>
+            ) : (
+              <>
+                <span>{email}</span>
+                <button onClick={() => setIsEditingEmail(true)}>Edit</button>
+              </>
+            )}
           </div>
+          {emailError && <span className="error-required">{emailError}</span>}
         </div>
       </div>
 
