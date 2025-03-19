@@ -1,3 +1,8 @@
+/* BoxContainer.css
+* CSS file for the BoxContainer component
+* Contains CSS styling for the BoxContainer component (product boxes)
+*/
+
 .box-container {
   background-color: #fff;
   border: 1px solid #ddd;

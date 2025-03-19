@@ -1,3 +1,8 @@
+/* File: CategoryContainer.css
+  * Description: CSS file for the CategoryContainer component
+  * Contains CSS styling for the CategoryContainer component
+ */
+
 .category-container {
   position: relative;
   border: 1px solid #ddd;

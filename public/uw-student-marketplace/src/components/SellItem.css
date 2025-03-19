@@ -1,4 +1,8 @@
-/* src/components/SellItem.css */
+/* File: SellItem.css
+  * Description: CSS file for the SellItem component
+  * Contains CSS styling for the SellItem component (form for selling an item)
+  * this css file imported in SellItem.js
+ */
 
 .sell-item-form {
   max-width: 600px;
@@ -8,6 +12,8 @@
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
+/* style photo upload section */
 
 .photos-section,
 .product-info-section,
@@ -47,10 +53,7 @@
   margin-bottom: 10px;
 }
 
-.form-group {
-  margin-bottom: 15px;
-}
-
+/* style form inputs and labels  */
 .form-group label {
   display: block;
   margin-bottom: 5px;
@@ -123,6 +126,7 @@
   align-items: center;
 }
 
+/* style submit button */
 .submit-button {
   background-color: #4CAF50;
   color: white;

@@ -1,4 +1,42 @@
-// src/components/SellItem.jsx
+/*
+ * File: SellItem.jsx
+ * Description: This component renders a form that allows users to sell an item. The form includes fields for
+ *             the product title, description, category, date of purchase, condition, price, location, and an image.
+ *             The user can submit the form to list the product for sale.
+ *                                                                                           
+ * States:
+ * - selectedFile (File): The selected image file to upload.
+ * - selectedCondition (string): The selected condition of the product.
+ * - title (string): The title of the product.
+ * - description (string): The description of the product.
+ * - date (object): The date of purchase of the product.
+ * - price (string): The price of the product.
+ * - location (string): The location of the product.
+ * - name (string): The name of the seller.
+ * - email (string): The email of the seller.
+ * - selectedCategory (string): The selected category of the product.
+ * - categories (array): An array of product categories.
+ * - fileInputRef (object): A reference to the file input element.
+ * - navigate (function): A function that allows the user to navigate to a different page.
+ * - titleError (string): The error message for the title field.
+ * - descriptionError (string): The error message for the description field.
+ * - priceError (string): The error message for the price field.
+ * - locationError (string): The error message for the location field.
+ * - conditionError (string): The error message for the condition field.
+ * - categoryError (string): The error message for the category field.
+ *         
+ * Methods: 
+ * - handleButtonClick(): Handles the click event on the upload button and triggers the file input.
+ * - handleFileChange(event): Handles the file change event and sets the selected file.
+ * - handleConditionClick(condition): Handles the click event on the condition button and sets the selected condition.
+ * - handleSubmit(event): Handles the form submission event and validates the form fields before listing the product.
+ * - SellItem(): This function returns the sell item component.
+ * - useEffect(): A hook that runs after the component output has been rendered to the DOM.
+     
+ * @author Rinkal Faldu
+ * @version 1.0
+ * @since 2025-02-25
+ */
 
 import React, { useState, useRef, useEffect } from 'react';
 import './SellItem.css';

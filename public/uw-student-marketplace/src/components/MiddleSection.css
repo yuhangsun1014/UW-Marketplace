@@ -1,10 +1,13 @@
-/* src/components/MiddleSection.css */
+/*File: MiddleSection.css
+  * Description: CSS file for the MiddleSection component
+  * Contains CSS styling for the MiddleSection component
+ */
 
+ /* MiddleSection with just purpul color box */
 .middle-section {
-    flex-grow: 1; /* Allows the middle section to expand */
-     /* Or your desired color */
+    flex-grow: 1; 
     padding:50px;
     min-height: calc(100vh - 180px);
     background-color:#e2cbf3;
-    /* Add any other styling you need here */
+  
   }
