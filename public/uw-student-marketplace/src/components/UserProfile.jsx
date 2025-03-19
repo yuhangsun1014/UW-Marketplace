@@ -1,29 +1,41 @@
-/*
- * File: UserProflie.jsx
- * Description: This component renders the user profile page. 
- *              The user profile page displays the user's name, email, and profile picture and when account is created. 
- *               The user can upload a new profile picture by selecting an image file.
- *              The user's profile picture is stored in Firebase Storage.  
- *              The user profile page is only accessible to logged-in users.
- *              If the user is not logged in, the user profile page displays a message indicating that the user is a guest.
- *                                                                                           
- * States:
- * - displayName (string): The name of the user.
- * - userEmail (string): The email of the user.
- * - createDate (string): The date when the user account was created.
- * - profilePic (file): The profile picture of the user.
- * - uploading (boolean): A flag to indicate if the profile picture is being uploaded.
- * - previewURL (string): The preview URL of the profile picture.
-          
+/**
+ * Class: UserProfile
+ * Description: A React component that allows the user to upload their profile picture.
+ *              The picture is stored in Firebase Storage and the download URL returned is
+ *              used to update the user's profile (Firebase Auth).
+ *
+ * Properties:
+ *   - displayName (string): The display name of the user, either from Firestore data or their email.
+ *   - userEmail (string): The user's email address.
+ *   - createDate (string): The date/time when the user's account was created.
+ *   - profilePic (File): The file object selected by the user to update their profile picture.
+ *   - uploading (boolean): Indicates whether the profile picture is currently being uploaded.
+ *   - previewURL (string): A temporary URL generated from the selected file for preview purposes.
+ *
  * Methods:
- * - handleFileChange(e): Handles the file change event and sets the profile picture.
- * - handleProfilePic(event): Handles the profile picture upload event and uploads the profile picture to Firebase Storage.
- * - UserProfile(): This function returns the user profile page component.
-        
- * @author 
- * @version 1.0
- * @since 2025-02-25
+ *   - useEffect(() => {}): Listens for authentication state changes and loads user data from Firestore.
+ *   - handleFileChange(event): Captures the file selected by the user, sets profilePic, and generates a preview URL.
+ *       Parameters:
+ *         event (SyntheticEvent): The change event from the file input.
+ *   - handleProfilePic(event): Uploads the selected profile picture to Firebase Storage and updates the user's
+ *                              Firebase Auth profile with the new photoURL.
+ *       Parameters:
+ *         event (SyntheticEvent): The form submission event.
+ *
+ * Usage:
+ *   This component displays the user's current profile picture (or a preview of a newly selected image),
+ *   allows the user to choose a new image via a hidden file input triggered by a button, and uploads the
+ *   new image to Firebase Storage. Upon a successful upload, the component updates the user's profile with
+ *   the new image URL.
+ *
+ * @author: William Sun
+ * @version: 1.0.0
+ * @since: 3-4-2025
  */
+
+ 
+
+
 import React, { useState,useEffect } from "react";
 import { getAuth,onAuthStateChanged, updateProfile } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore";
@@ -81,7 +93,7 @@ const handleProfilePic = async(event)=>{
     setUploading(true);
     const auth = getAuth();
     const user = auth.currentUser;
-
+    console.log(user);
 
     if (!user) {
         alert("No user is logged in.");
@@ -112,6 +124,7 @@ const handleProfilePic = async(event)=>{
 
                 await updateProfile(user,{photoURL: downloadURL});
                 alert("User profile updated successfully");
+                setPreviewURL(downloadURL);
                 setUploading(false);
                 setProfilePic(null);
             }
@@ -131,7 +144,7 @@ const handleProfilePic = async(event)=>{
         <div className="user-profile-container">
             {/**Left side, Avatar + Name */}
             <div className="profile-left">
-                <img src={previewURL} className="profile-pic" alt="profile"/>
+                <img src={previewURL || getAuth().currentUser?.photoURL} className="profile-pic" alt="profile"/>
                 <h1 className="profile-name">{displayName}</h1>
                 <form onSubmit={handleProfilePic}>
                     <input

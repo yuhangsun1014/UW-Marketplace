@@ -1,5 +1,9 @@
 # Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+Welcome to UW Marketplace, a dynamic digital platform designed to connect the University of Washington community with local businesses and services. Our mission is to foster a thriving ecosystem where students, faculty, and local vendors can easily interact, trade goods, and share services in a secure and user-friendly environment.
+
+UW Marketplace streamlines the process of buying, selling, and promoting local offerings. Whether you're a student searching for affordable textbooks, a local artist showcasing unique creations, or a business looking to engage with a vibrant community, our platform is built with your needs in mind. Through intuitive design and modern technology, we aim to provide a seamless experience that supports local commerce and enriches community connections.
+
+Join us as we transform how the UW community engages with local resources, making every transaction not just a purchase, but a step towards a more connected and prosperous community.
 
 # Getting Started
 TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
