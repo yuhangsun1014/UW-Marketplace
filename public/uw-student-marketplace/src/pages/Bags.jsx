@@ -1,5 +1,5 @@
 /*
- * File: Bags.jsx (new addedfile)
+ * File: Bags.jsx
  * Description: This component renders the Bags page. The Bags page displays a list of bags
  *              available for sale. The page contains a category container  that displays the category name
  *              and description top of each category page. The page also contains a grid layout of box containers that display the
