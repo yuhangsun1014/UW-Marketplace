@@ -9,8 +9,7 @@
  * States:
  * - products (array): The list of products available for sale.
  * - setProducts (function): A function that updates the products state.
- * - 
- *         
+         
  * Methods:
  * - Books(): This function returns the Books page component.
  * - useEffect(): This function is used to fetch the list of products from the database and update the products
@@ -30,9 +29,11 @@ import libImage from '../Assets/books.jpg'
 import fetchProducts from '../components/ProductList';
 
 function Books() {
-    const [products, setProducts] = useState([]);
+    const [products, setProducts] = useState([]); // state variable to store the list of products
       
       useEffect(() => {
+    
+    // fetch the list of products from the database
         fetchProducts("Books").then(res => {
           setProducts(res.docs);
         }).catch(err => console.log(err));

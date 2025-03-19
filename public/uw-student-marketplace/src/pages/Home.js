@@ -1,3 +1,30 @@
+/*
+ * File: Home.js
+ * Description: This component renders the Home page of the application.
+ *              The Home page displays a list of products available for sale. 
+ *             The list is fetched from the database and displayed in a grid format.
+ *              The user can click on a product to view more details.  
+ *             In this Home.js file middle section and boxcontainer imported as components.
+ *                                                                              
+ * States:
+ * - products (array): The list of products available for sale.
+ * - setProducts (function): A function that updates the products state.
+ * - filteredProducts (array): The list of products that match the search query.
+ * - setFilteredProducts (function): A function that updates the filteredProducts state.
+ * - location (object): The current location object.
+ * - navigate (function): A function that navigates to a new location.
+         
+ * Methods:
+ * - Home(): This function returns the Home page component.
+ * - useEffect(): This function is used to fetch the list of products from the database and update the products
+ * - fetchProducts(): This function fetches the list of products from the database.
+ * -
+ *      
+ * @author 
+ * @version 1.0
+ * @since 2025-02-25
+ */
+
 import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import MiddleSection from '../components/MiddleSection';

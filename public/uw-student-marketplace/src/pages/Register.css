@@ -1,4 +1,8 @@
-/* Register Page Styles */
+/* File: Register.css  
+   Description: CSS file for the Register page
+   this style page is visible when user clicks on the sign up button
+  
+ */
 
 .register-container {
     min-height: 100vh;

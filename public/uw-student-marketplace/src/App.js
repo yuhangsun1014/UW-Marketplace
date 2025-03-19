@@ -21,7 +21,7 @@ import SellItemPage from "./pages/SellItemPage";
 import UserProfilePage from "./pages/UserProfilePage";
 import ItemPostedPage from "./pages/ItemPostedPage";
 
-//Removed the buttom search box, it is duplicated with the top one
+
 function App() {
   return (
     

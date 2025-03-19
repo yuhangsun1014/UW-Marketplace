@@ -12,8 +12,10 @@
  * Methods:
  * - handleLogin(e): Submits the form data to Firebase auth for sign-in
  *                   and sets any errors that might occur.
+ * - Login(): This function returns the Login page component.
+ * -
  *
- * @author William Sun
+ * @author William Sun, Rinkal Faldu
  * @version 1.0
  * @since 2025-02-25
  */

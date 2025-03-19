@@ -1,3 +1,10 @@
+/* File: ProductInfo.css 
+    Description: CSS file for the ProductInfo page
+    Contains CSS styling for the ProductInfo page 
+    this Style page applies  when user clicks on a product to view more details
+  */
+
+
 .productInfo-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr); 

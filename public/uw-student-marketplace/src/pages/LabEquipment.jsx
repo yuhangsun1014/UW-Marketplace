@@ -1,3 +1,25 @@
+/*
+ * File: LabEquipment.jsx
+ * Description: This component renders the Lab equipment page of the application.
+ *              The lab equipment page displays a list of lab equipments available for sale. 
+ *              The list is fetched from the database and displayed in a grid format.
+ *             The user can click on an lab equipment product to view more details.           
+ *              In this LabEquipment.jsx file middle section and boxcontainer imported as components.
+ *                                                                              
+ * States:
+ * - products (array): The list of products available for sale.
+ * - setProducts (function): A function that updates the products state.
+         
+ * Methods:
+ * - Electronics(): This function returns the Lab equipment page component.
+ * - useEffect(): This function is used to fetch the list of products from the database and update the products
+ * - fetchProducts(): This function fetches the list of products from the database.
+ *      
+ * @author 
+ * @version 1.0
+ * @since 2025-02-25
+ */
+
 import React, { useState, useEffect } from 'react';
 import MiddleSection from '../components/MiddleSection';
 import BoxContainer from '../components/BoxContainer';

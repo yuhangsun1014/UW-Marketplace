@@ -1,3 +1,9 @@
+/* This CSS file is for the ItemPostedPage component. 
+It contains the styling for the successful posting message and checkmark image. 
+The successful-image class styles the container for the message and image, while the checkmark class styles the checkmark image itself. 
+The posted-message class styles the text message displayed below the checkmark image. 
+*/
+
 .successful-image{
     width: 50%;
     aspect-ratio: 2/3;

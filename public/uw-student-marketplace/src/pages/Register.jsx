@@ -11,9 +11,10 @@
  * - message:   Displays general feedback messages (string).
  * - error:     Displays error messages, particularly during registration (string).
  *
- * Internal Methods:
+ * Methods:
  * - handleRegister(e): Validates user inputs, calls the Firebase `registerUsers`
  *                      function, and handles success or error conditions.
+ * - Register(): Returns the Register page component.
  *
  * @author  William Sun, Rinkal Faldu
  * @version 1.0

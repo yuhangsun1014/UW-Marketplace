@@ -28,8 +28,9 @@ import bagpackImage from '../Assets/bagpack.jpeg';
 import fetchProducts from '../components/ProductList';
 
 function Bags() {
-    const [products, setProducts] = useState([]);
+    const [products, setProducts] = useState([]); // state variable to store the list of products
       
+    // fetch the list of products from the database
       useEffect(() => {
         fetchProducts("Bags").then(res => {
           setProducts(res.docs);
@@ -38,6 +39,7 @@ function Bags() {
 
     return (
         <div>
+            {/* display middle section and products */}
             <div className="app-container">
                 <MiddleSection>
                     <CategoryContainer 
