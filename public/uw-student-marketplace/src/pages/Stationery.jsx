@@ -1,3 +1,25 @@
+/*
+ * File: Stationery.jsx
+ * Description: This component renders the Stationery page of the application.
+ *              The Stationery page displays a list of stationery items available for sale. 
+ *              The list is fetched from the database and displayed in a grid format.
+ *             The user can click on a product to view more details.           
+ *              In this Stationery.jsx file middle section and boxcontainer imported as components.
+ *                                                                              
+ * States:
+ * - products (array): The list of products available for sale.
+ * - setProducts (function): A function that updates the products
+         
+ * Methods:
+ * - Stationery(): This function returns the Stationery page component.
+ * - useEffect(): This function is used to fetch the list of products from the database and update the products
+ * - fetchProducts(): This function fetches the list of products from the database.
+ *      
+ * @author 
+ * @version 1.0
+ * @since 2025-02-25
+ */
+
 import React, { useState, useEffect } from 'react';
 import MiddleSection from '../components/MiddleSection';
 import BoxContainer from '../components/BoxContainer';

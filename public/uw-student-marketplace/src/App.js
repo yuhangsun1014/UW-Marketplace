@@ -1,10 +1,23 @@
+/*
+ * File: App.js
+ * Description: This component renders the main App component of the application.
+ *              The App js is the main component that renders the header, footer, and routes to different pages.
+ *             The App js uses the BrowserRouter to navigate between different pages.  
+ *            
+ * Methods:
+ * - App(): This function returns the main App component and routes different pages of this application.
+ *      
+ * @author 
+ * @version 1.0
+ * @since 2025-02-25
+ */
+
 import React from "react";
 import {BrowserRouter as  Router, Routes, Route, Navigate} from "react-router-dom";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
-// import MiddleSection from "./components/MiddleSection";
 import ContactSellerPage from './pages/ContactSellerPage';
 import Books from './pages/Books';
 import Furniture from './pages/Furniture';
