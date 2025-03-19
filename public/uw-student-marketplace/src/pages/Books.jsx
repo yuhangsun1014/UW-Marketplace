@@ -1,9 +1,27 @@
-/* File: Books.jsx
-* Description: 
-            This file creates the Books page of the website. 
-            It displays the category image and description, and the first three products in the Books category.
-
+/*
+ * File: Books.jsx
+ * Description: This component renders the Books page of the application.
+ *              The Books page displays a list of books available for sale.
+ *             The list is fetched from the database and displayed in a grid format.
+ *            The user can click on a book to view more details. 
+ *            In this Books.jsx file middle section and boxcontainer imported as components.
+ *                                                                              
+ * States:
+ * - products (array): The list of products available for sale.
+ * - setProducts (function): A function that updates the products state.
+ * - 
+ *         
+ * Methods:
+ * - Books(): This function returns the Books page component.
+ * - useEffect(): This function is used to fetch the list of products from the database and update the products
+ * - fetchProducts(): This function fetches the list of products from the database.
+ *      
+ * @author 
+ * @version 1.0
+ * @since 2025-02-25
  */
+
+
 import React, { useState, useEffect } from 'react';
 import MiddleSection from '../components/MiddleSection';
 import BoxContainer from '../components/BoxContainer';
