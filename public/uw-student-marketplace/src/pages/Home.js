@@ -20,7 +20,7 @@
  * - fetchProducts(): This function fetches the list of products from the database.
  * -
  *      
- * @author 
+ * @author:Cora Xiao 
  * @version 1.0
  * @since 2025-02-25
  */

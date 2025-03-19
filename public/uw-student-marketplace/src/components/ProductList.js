@@ -10,7 +10,7 @@
  *   provided, it fetches products belonging to that category. Otherwise, it fetches all products.
  *   this function returns a Firestore query snapshot containing the fetched product data.
  * 
- * Author: 
+ * Author: Cora Xiao
  * Version: 1.0
  * Since: 2025-02-25
  */
