@@ -33,7 +33,7 @@
  * - SellItem(): This function returns the sell item component.
  * - useEffect(): A hook that runs after the component output has been rendered to the DOM.
      
- * @author Rinkal Faldu
+ * @author Rinkal Faldu, Gabrielle Omega 
  * @version 1.0
  * @since 2025-02-25
  */
@@ -124,7 +124,6 @@ function SellItem() {
     });
     return userSignInState;
   }, []);
-
 
   const handleSubmit = async (event) => {
 
@@ -221,7 +220,6 @@ function SellItem() {
             sellerEmail: email,
           });
           navigate('./ItemPostedPage');
-          // alert("Listed product successfully!");
 
           // clear all form details after submission
           setTitle('');
@@ -231,15 +229,12 @@ function SellItem() {
           setLocation('');
           setSelectedFile(null);
           setSelectedCondition(null);
-        } /*catch (error) {
-      console.log(error);
-      alert("Error uploading product");*/
+        } 
       );
     } catch (error) {
       console.error(error);
       alert("Error uploading product");
     }
-
   };
 
   return (
