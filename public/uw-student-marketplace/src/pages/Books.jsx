@@ -1,3 +1,5 @@
+/* I am doint testing for the Books page. I will be using the same code for the other pages.
+ */
 import React, { useState, useEffect } from 'react';
 import MiddleSection from '../components/MiddleSection';
 import BoxContainer from '../components/BoxContainer';
