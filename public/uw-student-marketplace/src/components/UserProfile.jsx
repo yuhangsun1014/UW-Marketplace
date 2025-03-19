@@ -1,3 +1,41 @@
+/**
+ * Class: UserProfile
+ * Description: A React component that allows the user to upload their profile picture.
+ *              The picture is stored in Firebase Storage and the download URL returned is
+ *              used to update the user's profile (Firebase Auth).
+ *
+ * Properties:
+ *   - displayName (string): The display name of the user, either from Firestore data or their email.
+ *   - userEmail (string): The user's email address.
+ *   - createDate (string): The date/time when the user's account was created.
+ *   - profilePic (File): The file object selected by the user to update their profile picture.
+ *   - uploading (boolean): Indicates whether the profile picture is currently being uploaded.
+ *   - previewURL (string): A temporary URL generated from the selected file for preview purposes.
+ *
+ * Methods:
+ *   - useEffect(() => {}): Listens for authentication state changes and loads user data from Firestore.
+ *   - handleFileChange(event): Captures the file selected by the user, sets profilePic, and generates a preview URL.
+ *       Parameters:
+ *         event (SyntheticEvent): The change event from the file input.
+ *   - handleProfilePic(event): Uploads the selected profile picture to Firebase Storage and updates the user's
+ *                              Firebase Auth profile with the new photoURL.
+ *       Parameters:
+ *         event (SyntheticEvent): The form submission event.
+ *
+ * Usage:
+ *   This component displays the user's current profile picture (or a preview of a newly selected image),
+ *   allows the user to choose a new image via a hidden file input triggered by a button, and uploads the
+ *   new image to Firebase Storage. Upon a successful upload, the component updates the user's profile with
+ *   the new image URL.
+ *
+ * @author: William Sun
+ * @version: 1.0.0
+ * @since: March.4.2025
+ */
+
+ 
+
+
 import React, { useState,useEffect } from "react";
 import { getAuth,onAuthStateChanged, updateProfile } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore";
@@ -55,7 +93,7 @@ const handleProfilePic = async(event)=>{
     setUploading(true);
     const auth = getAuth();
     const user = auth.currentUser;
-
+    console.log(user);
 
     if (!user) {
         alert("No user is logged in.");
@@ -86,6 +124,7 @@ const handleProfilePic = async(event)=>{
 
                 await updateProfile(user,{photoURL: downloadURL});
                 alert("User profile updated successfully");
+                setPreviewURL(downloadURL);
                 setUploading(false);
                 setProfilePic(null);
             }
@@ -105,7 +144,7 @@ const handleProfilePic = async(event)=>{
         <div className="user-profile-container">
             {/**Left side, Avatar + Name */}
             <div className="profile-left">
-                <img src={previewURL} className="profile-pic" alt="profile"/>
+                <img src={previewURL || getAuth().currentUser?.photoURL} className="profile-pic" alt="profile"/>
                 <h1 className="profile-name">{displayName}</h1>
                 <form onSubmit={handleProfilePic}>
                     <input
