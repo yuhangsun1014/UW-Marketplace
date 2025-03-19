@@ -1,4 +1,8 @@
-/* I am doint testing for the Books page. I will be using the same code for the other pages.
+/* File: Books.jsx
+* Description: 
+            This file creates the Books page of the website. 
+            It displays the category image and description, and the first three products in the Books category.
+
  */
 import React, { useState, useEffect } from 'react';
 import MiddleSection from '../components/MiddleSection';
