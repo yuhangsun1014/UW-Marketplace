@@ -46,10 +46,10 @@ Ensure you have the following installed on your system:
       -  REACT_APP_FIREBASE_MESSAGING_SENDER_ID=your-messaging-sender-id
       -  REACT_APP_FIREBASE_APP_ID=your-app-id
 
-4. GO to src floder, to create a production build of the project, run:
+4. GO to src floder, to create a production build of the project and run:
+   ```bash
    cd ../UW-Marketplace/public/uw-student-marketplace/src
-
-###        npm run build
+   npm run build
 
 5. Start the Development Server: Start the development server to run the application locally:
    ###        npm start
