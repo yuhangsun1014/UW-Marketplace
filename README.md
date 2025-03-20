@@ -53,7 +53,7 @@ Ensure you have the following installed on your system:
       -  REACT_APP_FIREBASE_MESSAGING_SENDER_ID=your-messaging-sender-id
       -  REACT_APP_FIREBASE_APP_ID=your-app-id
 4. Start the Development Server: Start the development server to run the application locally:
-###        npm start
+   ###        npm start
 
 The application will be available at http://localhost:3000. 
 
@@ -64,27 +64,9 @@ To create a production build of the project, run:
 
 Running Tests
 To run tests for the project, use:
-###       npm test
+ ###       npm test
 
-## Files or Folder Structure 
-my-app
-├── README.md
-├── node_modules
-├── package.json
-├── .gitignore
-├── public
-│   ├── favicon.ico
-│   ├── index.html
-│   └── manifest.json
-└── src
-    ├── App.css
-    ├── App.js
-    ├── App.test.js
-    ├── index.css
-    ├── index.js
-    ├── logo.svg
-    └── serviceWorker.js
-    └── setupTests.js
+
     
 # Contribute
 TODO: Explain how other users and developers can contribute to make your code better. 
