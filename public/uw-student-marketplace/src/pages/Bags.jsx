@@ -16,7 +16,7 @@
  * - useEffect(): This function is used to fetch the list of bags products from the Firestore database
  *                and update the state with the fetched products. It runs once when the component is mounted.
  *        
- * @author:
+ * @author:Cora Xiao
  * @version 1.0
  * @since 2025-02-25
  */
