@@ -45,7 +45,13 @@ Ensure you have the following installed on your system:
       -  REACT_APP_FIREBASE_STORAGE_BUCKET=your-storage-bucket
       -  REACT_APP_FIREBASE_MESSAGING_SENDER_ID=your-messaging-sender-id
       -  REACT_APP_FIREBASE_APP_ID=your-app-id
-4. Start the Development Server: Start the development server to run the application locally:
+
+4. GO to src floder, to create a production build of the project, run:
+   cd ../UW-Marketplace/public/uw-student-marketplace/src
+
+###        npm run build
+
+5. Start the Development Server: Start the development server to run the application locally:
    ###        npm start
 
 The application will be available at http://localhost:3000. 
