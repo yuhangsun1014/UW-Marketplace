@@ -20,6 +20,21 @@ TODO: Guide users through getting your code up and running on their own system. 
 - **Responsive Design**: Optimized for both desktop and mobile devices.
 
 ---
+/uw-student-marketplace
+├── /public
+├── /src
+│   ├── /components
+│   ├── /pages
+│   ├── /styles
+│   ├── Firebase-config.js
+│   ├── App.js
+│   └── index.js
+├── /build
+├── /node_modules
+├── .gitignore
+├── package.json
+└── README.md
+
 
 # Build and Test
 TODO: Describe and show how to build your code and run the tests. 
