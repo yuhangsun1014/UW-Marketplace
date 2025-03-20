@@ -26,7 +26,7 @@ Ensure you have the following installed on your system:
 
 ---
 
-## Installation
+## Steps to Build Project
 
 1. **Clone the Repository**:
    ```bash
