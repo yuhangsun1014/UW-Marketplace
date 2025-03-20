@@ -41,7 +41,7 @@ Ensure you have the following installed on your system:
    cd UW-Marketplace
 
 2. Install Dependencies: Run the following command to install all required dependencies:
-### npm install
+###         npm install
 
 3. Set Up Firebase:
       Create a Firebase project in the Firebase Console. Enable Authentication (Email/Password) and Firestore Database. Download the firebaseConfig object from 
@@ -53,33 +53,39 @@ Ensure you have the following installed on your system:
       -  REACT_APP_FIREBASE_MESSAGING_SENDER_ID=your-messaging-sender-id
       -  REACT_APP_FIREBASE_APP_ID=your-app-id
 4. Start the Development Server: Start the development server to run the application locally:
-### npm start
+###        npm start
 
 The application will be available at http://localhost:3000. 
 
 # Build and Test
 
 To create a production build of the project, run:
-### npm run build
+###        npm run build
 
 Running Tests
 To run tests for the project, use:
-### npm test
+###       npm test
 
 ## Files or Folder Structure 
-UW-Marketplace/
-├── public/                 # Static files
-├── src/
-│   ├── components/         # Reusable React components (e.g., Header, Footer)
-│   ├── pages/              # Page components (e.g., Home, Login, Books)
-│   ├── Assets/             # Images and other assets
-│   ├── Firebase-config.js  # Firebase configuration
-│   ├── App.js              # Main application file
-│   └── index.js            # Entry point
-├── .env                    # Environment variables
-├── package.json            # Project metadata and dependencies
-└── README.md               # Project documentation
-
+my-app
+├── README.md
+├── node_modules
+├── package.json
+├── .gitignore
+├── public
+│   ├── favicon.ico
+│   ├── index.html
+│   └── manifest.json
+└── src
+    ├── App.css
+    ├── App.js
+    ├── App.test.js
+    ├── index.css
+    ├── index.js
+    ├── logo.svg
+    └── serviceWorker.js
+    └── setupTests.js
+    
 # Contribute
 TODO: Explain how other users and developers can contribute to make your code better. 
 
