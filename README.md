@@ -24,20 +24,6 @@ TODO: Guide users through getting your code up and running on their own system. 
 # Build and Test
 TODO: Describe and show how to build your code and run the tests. 
 
-# Folder and File Structure 
-UW-Marketplace/
-├── public/                 # Static files
-├── src/
-│   ├── components/         # Reusable React components
-│   ├── pages/              # Page components (e.g., Home, UserProfile, ProductInfo)
-│   ├── Assets/             # Images and other assets
-│   ├── Firebase-config.js  # Firebase configuration
-│   ├── App.js              # Main application file
-│   └── index.js            # Entry point
-├── .env                    # Environment variables
-├── package.json            # Project metadata and dependencies
-└── README.md               # Project documentation
-
 # Contribute
 TODO: Explain how other users and developers can contribute to make your code better. 
 
