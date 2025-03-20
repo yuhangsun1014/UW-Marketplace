@@ -4,6 +4,13 @@ Welcome to UW Marketplace, a dynamic digital platform designed to connect the Un
 UW Marketplace streamlines the process of buying, selling, and promoting local offerings. Whether you're a student searching for affordable textbooks, a local artist showcasing unique creations, or a business looking to engage with a vibrant community, our platform is built with your needs in mind. Through intuitive design and modern technology, we aim to provide a seamless experience that supports local commerce and enriches community connections.
 
 Join us as we transform how the UW community engages with local resources, making every transaction not just a purchase, but a step towards a more connected and prosperous community.
+- **User Authentication**: Secure login and registration using Firebase Authentication.
+- **Product Listings**: Browse, search, and filter products by categories such as Books, Furniture, Electronics, and more.
+- **Sell Items**: Post items for sale with images, descriptions, and pricing.
+- **User Profiles**: Manage your profile, including updating profile pictures and viewing account details.
+- **Responsive Design**: Optimized for both desktop and mobile devices.
+- **Contact Sellers**: Easily contact sellers for inquiries about products.
+
 
 # Getting Started
 TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
@@ -12,42 +19,53 @@ TODO: Guide users through getting your code up and running on their own system. 
 3.	Latest releases
 4.	API references
 ---
-Available Scripts
-In the project directory, you can run:
+## Getting Started
 
-# npm start
-Runs the app in the development mode.
-Open http://localhost:3000 to view it in your browser.
+Follow these steps to set up the project on your local machine.
 
-The page will reload when you make changes.
-You may also see any lint errors in the console.
+### Prerequisites
 
-# npm test
+Ensure you have the following installed on your system:
 
-Launches the test runner in the interactive watch mode.
-See the section about running tests for more information.
+1. **Node.js** (v16 or later) - [Download Node.js](https://nodejs.org/)
+2. **npm** (comes with Node.js) or **yarn** (optional) - [Install Yarn](https://yarnpkg.com/)
+3. **Firebase Account** - Set up a Firebase project for authentication and Firestore database.
 
-# npm run build
+---
 
-Builds the app for production to the build folder.
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Installation
 
-The build is minified and the filenames include the hashes.
-Your app is ready to be deployed!
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/your-username/UW-Marketplace.git
+   cd UW-Marketplace
 
-See the section about deployment for more information.
+2. Install Dependencies: Run the following command to install all required dependencies:
+### npm install
 
-# npm run eject
-Note: this is a one-way operation. Once you eject, you can't go back!
+3. Set Up Firebase:
+      Create a Firebase project in the Firebase Console. Enable Authentication (Email/Password) and Firestore Database. Download the firebaseConfig object from 
+      your Firebase project settings. Create a .env file in the root directory and add your Firebase configuration:
+              REACT_APP_FIREBASE_API_KEY=your-api-key
+              REACT_APP_FIREBASE_AUTH_DOMAIN=your-auth-domain
+              REACT_APP_FIREBASE_PROJECT_ID=your-project-id
+              REACT_APP_FIREBASE_STORAGE_BUCKET=your-storage-bucket
+              REACT_APP_FIREBASE_MESSAGING_SENDER_ID=your-messaging-sender-id
+              REACT_APP_FIREBASE_APP_ID=your-app-id
+4. Start the Development Server: Start the development server to run the application locally:
+### npm start
 
-If you aren't satisfied with the build tool and configuration choices, you can eject at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except eject will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use eject. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it
+The application will be available at http://localhost:3000. 
 
 # Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+
+To create a production build of the project, run:
+### npm run build
+
+Running Tests
+To run tests for the project, use:
+### npm test
+
 
 # Contribute
 TODO: Explain how other users and developers can contribute to make your code better. 
