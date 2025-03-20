@@ -32,27 +32,31 @@ Ensure you have the following installed on your system:
    ```bash
    git clone https://github.com/yuhangsun1014/UW-Marketplace.git
    cd UW-Marketplace
+   cd ../UW-Marketplace/public/uw-student-marketplace/
+   ```
 
-2. Install Dependencies: Run the following command to install all required dependencies:
-###         npm install
-
-3. Set Up Firebase:
-      Create a Firebase project in the Firebase Console. Enable Authentication (Email/Password) and Firestore Database. Download the firebaseConfig object from 
-      your Firebase project settings. Create a .env file in the root directory and add your Firebase configuration:
-      -  REACT_APP_FIREBASE_API_KEY=your-api-key
-      -  REACT_APP_FIREBASE_AUTH_DOMAIN=your-auth-domain
-      -  REACT_APP_FIREBASE_PROJECT_ID=your-project-id
-      -  REACT_APP_FIREBASE_STORAGE_BUCKET=your-storage-bucket
-      -  REACT_APP_FIREBASE_MESSAGING_SENDER_ID=your-messaging-sender-id
-      -  REACT_APP_FIREBASE_APP_ID=your-app-id
-
-4. GO to src folder, to create a production build of the project and run:
+2. Create the **.env** file and **add given Firebase API keys** to it:
    ```bash
-   cd ../UW-Marketplace/public/uw-student-marketplace/src
-   npm run build
+   touch .env
+   ```
+   Firebase configuration should now look like:
+      - REACT_APP_FIREBASE_API_KEY=your-api-key
+      - REACT_APP_FIREBASE_AUTH_DOMAIN=your-auth-domain
+      - REACT_APP_FIREBASE_PROJECT_ID=your-project-id
+      - REACT_APP_FIREBASE_STORAGE_BUCKET=your-storage-bucket
+      - REACT_APP_FIREBASE_MESSAGING_SENDER_ID=your-messaging-sender-id
+      - REACT_APP_FIREBASE_APP_ID=your-app-id
+      - REACT_APP_FIREBASE_MEASUREMENT_ID=your-measurement-id
 
-5. Start the Development Server: Start the development server to run the application locally:
-   ###        npm start
+3. Install Dependencies: Run **npm install** to install all required dependencies:
+   ```bash
+   npm install
+   ```
+
+4. Start the Development Server: Run **npm start** to run the application locally:
+   ```bash
+   npm start
+   ```
 
 The application will be available at http://localhost:3000. 
 
@@ -61,7 +65,4 @@ The application will be available at http://localhost:3000.
 To create a production build of the project, run:
 ###        npm run build
 
-Running Tests
-To run tests for the project, use:
- ###       npm test
 
