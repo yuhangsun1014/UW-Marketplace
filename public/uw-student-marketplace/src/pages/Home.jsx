@@ -30,12 +30,26 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import MiddleSection from '../components/MiddleSection';
 import BoxContainer from '../components/BoxContainer';
 import fetchProducts from '../components/ProductList';
+import { auth } from "../Firebase-config"; // Import Firebase authentication
+
 
 export default function Home() {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const location = useLocation();
   const navigate = useNavigate();
+
+  // redirect to sign up page if the user is not logged in
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged(user => {
+      if (!user) {
+        // if the user is not authenticated, redirect them to register
+        navigate('/register');
+      }
+    });
+
+    return () => unsubscribe(); // stop listener
+  }, [navigate]);
 
   useEffect(() => {
     fetchProducts().then(res => {
