@@ -30,7 +30,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import MiddleSection from '../components/MiddleSection';
 import BoxContainer from '../components/BoxContainer';
 import fetchProducts from '../components/ProductList';
-import { auth } from "../Firebase-config"; // Import Firebase authentication
+import { auth } from "../Firebase-config"; 
 
 
 export default function Home() {
