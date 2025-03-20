@@ -12,8 +12,31 @@ TODO: Guide users through getting your code up and running on their own system. 
 3.	Latest releases
 4.	API references
 
+## Features
+- **User Authentication**: Secure login and registration using Firebase Authentication.
+- **Product Listings**: Browse, search, and filter products by categories such as Books, Furniture, Electronics, and more.
+- **Sell Items**: Post items for sale with images, descriptions, and pricing.
+- **User Profiles**: Manage your profile, including updating profile pictures and viewing account details.
+- **Responsive Design**: Optimized for both desktop and mobile devices.
+
+---
+
 # Build and Test
 TODO: Describe and show how to build your code and run the tests. 
+
+# Folder and File Structure 
+UW-Marketplace/
+├── public/                 # Static files
+├── src/
+│   ├── components/         # Reusable React components
+│   ├── pages/              # Page components (e.g., Home, UserProfile, ProductInfo)
+│   ├── Assets/             # Images and other assets
+│   ├── Firebase-config.js  # Firebase configuration
+│   ├── App.js              # Main application file
+│   └── index.js            # Entry point
+├── .env                    # Environment variables
+├── package.json            # Project metadata and dependencies
+└── README.md               # Project documentation
 
 # Contribute
 TODO: Explain how other users and developers can contribute to make your code better. 
