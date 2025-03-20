@@ -26,7 +26,7 @@ Ensure you have the following installed on your system:
 
 ---
 
-## Steps to Build Project
+## Project Setup and Build Instructions
 
 1. **Clone the Repository**:
    ```bash
@@ -60,9 +60,5 @@ Ensure you have the following installed on your system:
 
 The application will be available at http://localhost:3000. 
 
-# Build and Test
-
-To create a production build of the project, run:
-###        npm run build
 
 
