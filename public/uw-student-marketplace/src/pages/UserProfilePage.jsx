@@ -9,7 +9,7 @@
  * Methods:
  * - UserProfilePage(): This function returns the UserProfile page component.
  *      
- * @author 
+ * @author:Cora Xiao
  * @version 1.0
  * @since 2025-02-25
  */

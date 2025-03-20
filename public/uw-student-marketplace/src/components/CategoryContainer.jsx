@@ -8,7 +8,7 @@
  * - CategoryContainer(props): This function returns the category container component
  *    (top part of product category page such as image, title and small description).
  *       
- * @author 
+ * @author:Cora Xiao 
  * @version 1.0
  * @since 2025-02-25
  */
