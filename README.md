@@ -46,12 +46,12 @@ Ensure you have the following installed on your system:
 3. Set Up Firebase:
       Create a Firebase project in the Firebase Console. Enable Authentication (Email/Password) and Firestore Database. Download the firebaseConfig object from 
       your Firebase project settings. Create a .env file in the root directory and add your Firebase configuration:
-              REACT_APP_FIREBASE_API_KEY=your-api-key
-              REACT_APP_FIREBASE_AUTH_DOMAIN=your-auth-domain
-              REACT_APP_FIREBASE_PROJECT_ID=your-project-id
-              REACT_APP_FIREBASE_STORAGE_BUCKET=your-storage-bucket
-              REACT_APP_FIREBASE_MESSAGING_SENDER_ID=your-messaging-sender-id
-              REACT_APP_FIREBASE_APP_ID=your-app-id
+      -  REACT_APP_FIREBASE_API_KEY=your-api-key
+      -  REACT_APP_FIREBASE_AUTH_DOMAIN=your-auth-domain
+      -  REACT_APP_FIREBASE_PROJECT_ID=your-project-id
+      -  REACT_APP_FIREBASE_STORAGE_BUCKET=your-storage-bucket
+      -  REACT_APP_FIREBASE_MESSAGING_SENDER_ID=your-messaging-sender-id
+      -  REACT_APP_FIREBASE_APP_ID=your-app-id
 4. Start the Development Server: Start the development server to run the application locally:
 ### npm start
 
@@ -66,6 +66,19 @@ Running Tests
 To run tests for the project, use:
 ### npm test
 
+## Files or Folder Structure 
+UW-Marketplace/
+├── public/                 # Static files
+├── src/
+│   ├── components/         # Reusable React components (e.g., Header, Footer)
+│   ├── pages/              # Page components (e.g., Home, Login, Books)
+│   ├── Assets/             # Images and other assets
+│   ├── Firebase-config.js  # Firebase configuration
+│   ├── App.js              # Main application file
+│   └── index.js            # Entry point
+├── .env                    # Environment variables
+├── package.json            # Project metadata and dependencies
+└── README.md               # Project documentation
 
 # Contribute
 TODO: Explain how other users and developers can contribute to make your code better. 
