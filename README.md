@@ -18,22 +18,9 @@ TODO: Guide users through getting your code up and running on their own system. 
 - **Sell Items**: Post items for sale with images, descriptions, and pricing.
 - **User Profiles**: Manage your profile, including updating profile pictures and viewing account details.
 - **Responsive Design**: Optimized for both desktop and mobile devices.
+- **Contact Sellers**: Easily contact sellers for inquiries about products.
 
 ---
-/uw-student-marketplace
-├── /public
-├── /src
-│   ├── /components
-│   ├── /pages
-│   ├── /styles
-│   ├── Firebase-config.js
-│   ├── App.js
-│   └── index.js
-├── /build
-├── /node_modules
-├── .gitignore
-├── package.json
-└── README.md
 
 
 # Build and Test
