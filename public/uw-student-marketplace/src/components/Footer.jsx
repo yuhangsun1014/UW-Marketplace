@@ -7,10 +7,11 @@
  * Methods:
  * - Footer(): This function returns the footer component.
  *       
- * @author 
+ * @author Gabrielle Omega
  * @version 1.0
  * @since 2025-02-25
  */
+
 import React from 'react';
 import "./Footer.css"
 

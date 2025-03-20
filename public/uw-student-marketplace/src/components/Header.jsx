@@ -110,14 +110,18 @@ function Header() {
 
         {/* Action buttons */}
         <div class="action-buttons">
-          <button class="sell-button" onClick={() => navigate('/SellItemPage')}>
-            Sell Items
-          </button>
           <div class="auth-buttons">
+
             {displayName ? (
-              <button class="signout-button" onClick={handleSignOut}>
-                Sign Out
-              </button>
+              <>
+                <button class="sell-button" onClick={() => navigate('/SellItemPage')}>
+                  Sell Items
+                </button>
+
+                <button class="signout-button" onClick={handleSignOut}>
+                  Sign Out
+                </button>
+              </>
             ) : (
               <>
                 <button class="login-button" onClick={() => navigate('/login')}>
